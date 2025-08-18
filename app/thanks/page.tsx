@@ -23,7 +23,7 @@ export default function ThanksPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-black">
       <div className="container mx-auto px-4 py-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -49,12 +49,12 @@ export default function ThanksPage() {
           </div>
 
           {/* Main Content Card */}
-          <Card className="bg-white/95 backdrop-blur-sm shadow-2xl">
+          <Card className="bg-gray-900 border-gray-700 shadow-2xl">
             <CardContent className="p-8">
               {/* Report Delivery Section */}
               <div className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">📩 Complete Report Delivery</h2>
-                <p className="text-lg text-gray-600 mb-6">
+                <h2 className="text-2xl font-bold text-white mb-4 flex items-center">📩 Complete Report Delivery</h2>
+                <p className="text-lg text-gray-300 mb-6">
                   <strong>Estimated Delivery:</strong> Within 7 days
                 </p>
 
@@ -70,38 +70,38 @@ export default function ThanksPage() {
                         transition={{ delay: 0.3 + index * 0.1 }}
                         className={`flex items-center p-4 rounded-lg border-2 ${
                           step.status === "completed"
-                            ? "bg-green-50 border-green-200"
+                            ? "bg-green-900/50 border-green-600"
                             : step.status === "current"
-                              ? "bg-blue-50 border-blue-200"
-                              : "bg-gray-50 border-gray-200"
+                              ? "bg-blue-900/50 border-blue-600"
+                              : "bg-gray-800 border-gray-600"
                         }`}
                       >
                         <Icon
                           className={`w-6 h-6 mr-3 ${
                             step.status === "completed"
-                              ? "text-green-600"
+                              ? "text-green-400"
                               : step.status === "current"
-                                ? "text-blue-600"
+                                ? "text-blue-400"
                                 : "text-gray-400"
                           }`}
                         />
                         <span
                           className={`font-semibold ${
                             step.status === "completed"
-                              ? "text-green-800"
+                              ? "text-green-300"
                               : step.status === "current"
-                                ? "text-blue-800"
-                                : "text-gray-600"
+                                ? "text-blue-300"
+                                : "text-gray-300"
                           }`}
                         >
                           {step.label}
                         </span>
-                        {step.status === "completed" && <CheckCircle className="w-5 h-5 text-green-600 ml-auto" />}
+                        {step.status === "completed" && <CheckCircle className="w-5 h-5 text-green-400 ml-auto" />}
                         {step.status === "current" && (
                           <motion.div
                             animate={{ rotate: 360 }}
                             transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                            className="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full ml-auto"
+                            className="w-5 h-5 border-2 border-blue-400 border-t-transparent rounded-full ml-auto"
                           />
                         )}
                       </motion.div>
@@ -112,7 +112,7 @@ export default function ThanksPage() {
 
               {/* What's Included */}
               <div className="mb-8">
-                <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">📦 What's Included</h3>
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">📦 What's Included</h3>
                 <div className="space-y-3">
                   {reportItems.map((item, index) => (
                     <motion.div
@@ -122,8 +122,8 @@ export default function ThanksPage() {
                       transition={{ delay: 0.5 + index * 0.1 }}
                       className="flex items-center"
                     >
-                      <CheckCircle className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
-                      <span className="text-gray-700">{item}</span>
+                      <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                      <span className="text-gray-300">{item}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -134,13 +134,13 @@ export default function ThanksPage() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
-                className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8"
+                className="bg-yellow-900/30 border-l-4 border-yellow-400 p-4 mb-8"
               >
                 <div className="flex items-start">
-                  <AlertTriangle className="w-6 h-6 text-yellow-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <AlertTriangle className="w-6 h-6 text-yellow-400 mr-3 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-yellow-800 mb-2">⚠️ Important Notice</h4>
-                    <p className="text-yellow-700 leading-relaxed">
+                    <h4 className="font-semibold text-yellow-300 mb-2">⚠️ Important Notice</h4>
+                    <p className="text-yellow-200 leading-relaxed">
                       Please check your email regularly, including your spam/junk folder. The report will be sent from a
                       secure email address.
                       <br />
@@ -151,17 +151,17 @@ export default function ThanksPage() {
               </motion.div>
 
               {/* Security Badges */}
-              <div className="flex justify-center items-center space-x-6 mb-8 text-sm text-gray-600">
+              <div className="flex justify-center items-center space-x-6 mb-8 text-sm text-gray-300">
                 <div className="flex items-center">
-                  <Shield className="w-4 h-4 mr-1 text-green-600" />
+                  <Shield className="w-4 h-4 mr-1 text-green-400" />
                   SSL Secured
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-4 h-4 mr-1 text-blue-600" />
+                  <CheckCircle className="w-4 h-4 mr-1 text-blue-400" />
                   Verified Payment
                 </div>
                 <div className="flex items-center">
-                  <Mail className="w-4 h-4 mr-1 text-purple-600" />
+                  <Mail className="w-4 h-4 mr-1 text-purple-400" />
                   Email Protected
                 </div>
               </div>

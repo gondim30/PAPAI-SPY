@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { AlertTriangle, MessageSquare, Image, Video, Shield, Clock, CheckCircle } from "lucide-react"
+import { AlertTriangle, MessageSquare, ImageIcon, Video, Shield, Clock, CheckCircle } from "lucide-react"
 
 export default function Emergency2Page() {
   const [timeLeft, setTimeLeft] = useState(15 * 60) // 15 minutes in seconds
@@ -27,8 +27,8 @@ export default function Emergency2Page() {
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50">
       <div className="fixed top-0 left-0 right-0 z-50 bg-red-600 text-white py-3 px-4 text-center font-bold text-sm md:text-base shadow-lg">
         <div className="flex items-center justify-center gap-2">
-          <AlertTriangle className="w-5 h-5 animate-pulse" />🚨 DO NOT CLOSE OR REFRESH THIS PAGE, OR YOU
-          MIGHT ENCOUNTER AN ERROR WITH YOUR PURCHASE.
+          <AlertTriangle className="w-5 h-5 animate-pulse" />🚨 DO NOT CLOSE OR REFRESH THIS PAGE, OR YOU MIGHT
+          ENCOUNTER AN ERROR WITH YOUR PURCHASE.
         </div>
       </div>
 
@@ -72,21 +72,21 @@ export default function Emergency2Page() {
               <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                 <p className="text-xl mb-6">
                   <strong>Congratulations on your courage to seek the truth about your relationship.</strong> It's
-                  painful to imagine your loved one sharing moments with someone else, but you have
-                  the intelligence and determination to discover the truth.
+                  painful to imagine your loved one sharing moments with someone else, but you have the intelligence and
+                  determination to discover the truth.
                 </p>
 
                 <p className="text-lg mb-6">
                   Our advanced application allows you to{" "}
-                  <strong>recover all deleted messages, photos and videos</strong> without letting any secret
-                  be hidden from you.
+                  <strong>recover all deleted messages, photos and videos</strong> without letting any secret be hidden
+                  from you.
                 </p>
 
                 <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-6 mb-6">
                   <p className="text-lg mb-4">
                     <strong>This exclusive offer is only available on this page.</strong> Normally valued at{" "}
-                    <span className="line-through text-red-500">$100</span>, you can get it now for
-                    only <span className="text-green-600 font-bold text-2xl">$47</span> (over 50% off).
+                    <span className="line-through text-red-500">$100</span>, you can get it now for only{" "}
+                    <span className="text-green-600 font-bold text-2xl">$47</span> (over 50% off).
                   </p>
                 </div>
               </div>
@@ -100,7 +100,7 @@ export default function Emergency2Page() {
               </div>
 
               <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl">
-                <Image className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+                <ImageIcon className="w-12 h-12 text-purple-600 mx-auto mb-4" />
                 <h3 className="font-bold text-lg mb-2">Hidden Photos</h3>
                 <p className="text-gray-600">Access deleted images and private photo exchanges</p>
               </div>
@@ -135,8 +135,8 @@ export default function Emergency2Page() {
 
             <div className="text-center mb-8">
               <p className="text-lg text-gray-700 mb-6">
-                <strong>Act now to avoid deception and ensure honesty in your relationship.</strong>{" "}
-                Click below before this opportunity disappears.
+                <strong>Act now to avoid deception and ensure honesty in your relationship.</strong> Click below before
+                this opportunity disappears.
               </p>
             </div>
 

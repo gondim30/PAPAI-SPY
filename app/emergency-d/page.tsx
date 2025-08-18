@@ -74,9 +74,7 @@ export default function EmergencyDownsellPage() {
         <Card className="border-orange-200 bg-orange-50">
           <CardContent className="p-6 text-center">
             <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">🔥 SPECIAL LAST CHANCE OFFER</h2>
-            <p className="text-lg font-semibold text-orange-600 mb-4">
-              You were about to lose permanent access...
-            </p>
+            <p className="text-lg font-semibold text-orange-600 mb-4">You were about to lose permanent access...</p>
             <p className="text-gray-700 mb-6">
               Since you've made it this far, we're making a special offer that will never be repeated.
             </p>
@@ -90,15 +88,15 @@ export default function EmergencyDownsellPage() {
               {/* TriboPay OneClick Buttons */}
               <div className="text-center">
                 <div style={{ width: "auto", maxWidth: "400px", margin: "0 auto" }}>
-                  <button 
-                    data-fornpay="3olowe4hoo" 
+                  <button
+                    data-fornpay="3olowe4hoo"
                     className="fornpay_btn bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded border border-green-700 cursor-pointer text-lg mb-4 w-full transition-colors"
                   >
                     ✅ I WANT TO ACCESS THE SUSPICIOUS CONTENT NOW
                   </button>
-                  
-                  <button 
-                    data-downsell="https://www.tindercheck.online/emergency2" 
+
+                  <button
+                    data-downsell="https://www.tindercheck.online/emergency2"
                     className="fornpay_downsell mt-4 cursor-pointer text-base underline text-blue-600 hover:text-blue-800 transition-colors block w-full bg-transparent border-0"
                   >
                     I don't want to access the suspicious content now
@@ -164,22 +162,22 @@ export default function EmergencyDownsellPage() {
           <CardContent className="p-6 text-center">
             <h3 className="text-xl font-bold text-green-700 mb-4">✅ Last chance to discover the truth</h3>
             <p className="text-gray-700 mb-6">
-              Don't let doubt consume you. For only $27, you'll have complete and permanent access to
-              all the information.
+              Don't let doubt consume you. For only $27, you'll have complete and permanent access to all the
+              information.
             </p>
 
             {/* Final CTA with TriboPay */}
             <div className="text-center">
               <div style={{ width: "auto", maxWidth: "400px", margin: "0 auto" }}>
-                <button 
-                  data-fornpay="3olowe4hoo" 
+                <button
+                  data-fornpay="3olowe4hoo"
                   className="fornpay_btn bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded border border-green-700 cursor-pointer text-lg mb-4 w-full transition-colors"
                 >
                   ✅ I WANT TO ACCESS THE SUSPICIOUS CONTENT NOW
                 </button>
-                
-                <button 
-                  data-downsell="https://www.tindercheck.online/emergency2" 
+
+                <button
+                  data-downsell="https://www.tindercheck.online/emergency2"
                   className="fornpay_downsell mt-4 cursor-pointer text-base underline text-blue-600 hover:text-blue-800 transition-colors block w-full bg-transparent border-0"
                 >
                   I don't want to access the suspicious content now

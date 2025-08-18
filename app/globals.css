@@ -196,7 +196,7 @@ body {
 }
 
 /* Fallback for broken images */
-img[alt*="Foto"]:not([src*="data:"]) {
+img[alt*="Photo"]:not([src*="data:"]) {
   background-color: #f3f4f6;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'/%3E%3C/svg%3E");
   background-size: 60%;
@@ -204,8 +204,8 @@ img[alt*="Foto"]:not([src*="data:"]) {
   background-position: center;
 }
 
-/* Container de depoimentos - Layout responsivo */
-.container-depoimentos {
+/* Testimonials container - Responsive layout */
+.container-testimonials {
   display: flex;
   gap: 16px;
   justify-content: center;
@@ -213,8 +213,8 @@ img[alt*="Foto"]:not([src*="data:"]) {
   flex-wrap: nowrap;
 }
 
-/* Cards de depoimento */
-.depoimento-card {
+/* Testimonial cards */
+.testimonial-card {
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -225,13 +225,13 @@ img[alt*="Foto"]:not([src*="data:"]) {
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.depoimento-card:hover {
+.testimonial-card:hover {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
   transform: translateY(-2px);
 }
 
-/* Texto dos depoimentos */
-.texto-depoimento {
+/* Testimonial text */
+.testimonial-text {
   font-size: 16px;
   line-height: 1.5;
   color: #555555;
@@ -240,16 +240,16 @@ img[alt*="Foto"]:not([src*="data:"]) {
   font-weight: 400;
 }
 
-/* Nome do depoente */
-.nome-depoimento {
+/* Testimonial author name */
+.testimonial-name {
   font-weight: bold;
   font-size: 16px;
   color: #333333;
   margin-bottom: 2px;
 }
 
-/* Subtítulos */
-.subtitulo-verificado {
+/* Subtitles */
+.verified-subtitle {
   font-size: 12px;
   font-weight: 500;
   color: #059669;
@@ -258,54 +258,54 @@ img[alt*="Foto"]:not([src*="data:"]) {
   gap: 4px;
 }
 
-.subtitulo-data {
+.date-subtitle {
   font-size: 12px;
   font-weight: 500;
   color: #2563eb;
 }
 
-/* Responsividade para mobile */
+/* Mobile responsiveness */
 @media (max-width: 768px) {
-  .container-depoimentos {
+  .container-testimonials {
     flex-direction: column;
     gap: 16px;
     align-items: center;
   }
 
-  .depoimento-card {
+  .testimonial-card {
     max-width: 100%;
     width: 100%;
   }
 
-  .texto-depoimento {
+  .testimonial-text {
     font-size: 15px;
   }
 
-  .nome-depoimento {
+  .testimonial-name {
     font-size: 15px;
   }
 }
 
-/* Ajustes para tablets */
+/* Tablet adjustments */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .container-depoimentos {
+  .container-testimonials {
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .depoimento-card {
+  .testimonial-card {
     max-width: 280px;
   }
 }
 
-/* Desktop grande */
+/* Large desktop */
 @media (min-width: 1025px) {
-  .depoimento-card {
+  .testimonial-card {
     max-width: 350px;
   }
 }
 
-/* Stepper responsivo com scroll horizontal */
+/* Responsive stepper with horizontal scroll */
 .stepper-container {
   display: flex;
   overflow-x: auto;
@@ -324,7 +324,7 @@ img[alt*="Foto"]:not([src*="data:"]) {
   font-size: 12px;
 }
 
-/* Melhorias para touch scroll no mobile */
+/* Touch scroll improvements for mobile */
 @media (max-width: 768px) {
   .stepper-container {
     -webkit-overflow-scrolling: touch;
@@ -337,7 +337,7 @@ img[alt*="Foto"]:not([src*="data:"]) {
     font-size: 12px;
   }
 
-  /* Indicador visual sutil de que é scrollável */
+  /* Subtle visual indicator that it's scrollable */
   .stepper-container::after {
     content: "";
     position: absolute;
@@ -350,7 +350,7 @@ img[alt*="Foto"]:not([src*="data:"]) {
   }
 }
 
-/* Desktop - layout normal */
+/* Desktop - normal layout */
 @media (min-width: 769px) {
   .stepper-container {
     justify-content: center;
@@ -365,19 +365,19 @@ img[alt*="Foto"]:not([src*="data:"]) {
   }
 }
 
-/* Transições suaves para os steps */
+/* Smooth transitions for steps */
 .stepper-step span {
   transition: all 0.3s ease;
 }
 
-/* Hover effect apenas no desktop */
+/* Hover effect only on desktop */
 @media (min-width: 769px) {
   .stepper-step:hover span {
     transform: scale(1.05);
   }
 }
 
-/* Garantir que o conteúdo não seja cortado */
+/* Ensure content is not cut off */
 .stepper-step {
   display: flex;
   align-items: center;
@@ -385,7 +385,7 @@ img[alt*="Foto"]:not([src*="data:"]) {
   white-space: nowrap;
 }
 
-/* Melhorar a legibilidade dos textos */
+/* Improve text readability */
 @media (max-width: 640px) {
   .stepper-step span {
     font-size: 11px;

@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server"
 
 export async function POST(request: NextRequest) {
-  // JSON-default de retorno em caso de falha da API externa
+  // Default JSON return in case of external API failure
   const fallbackPayload = {
     success: true,
     result:
@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
 
     if (!phone) {
       return NextResponse.json(
-        { success: false, error: "Número de telefone é obrigatório" },
+        { success: false, error: "Phone number is required" },
         {
           status: 400,
           headers: { "Access-Control-Allow-Origin": "*" },
@@ -22,10 +22,10 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Remove caracteres não numéricos
+    // Remove non-numeric characters
     const cleanPhone = phone.replace(/[^0-9]/g, "")
 
-    // Adiciona código do país se não tiver (assumindo Brasil +55)
+    // Add country code if not present (assuming Brazil +55)
     let fullNumber = cleanPhone
     if (!cleanPhone.startsWith("55") && cleanPhone.length === 11) {
       fullNumber = "55" + cleanPhone
@@ -39,14 +39,14 @@ export async function POST(request: NextRequest) {
           Accept: "application/json",
           Origin: "https://whatspy.chat",
         },
-        // timeout de 10 s (Edge Runtime aceita AbortController)
+        // 10 second timeout (Edge Runtime accepts AbortController)
         signal: AbortSignal.timeout?.(10_000),
       },
     )
 
-    // Se a API externa falhar, devolvemos payload padrão 200
+    // If external API fails, return default payload with 200 status
     if (!response.ok) {
-      console.error("API externa retornou status:", response.status)
+      console.error("External API returned status:", response.status)
       return NextResponse.json(fallbackPayload, {
         status: 200,
         headers: { "Access-Control-Allow-Origin": "*" },
@@ -69,8 +69,8 @@ export async function POST(request: NextRequest) {
       },
     )
   } catch (err) {
-    console.error("Erro no webhook WhatsApp:", err)
-    // Nunca deixamos propagar status 500; devolvemos fallback
+    console.error("WhatsApp webhook error:", err)
+    // Never let status 500 propagate; return fallback
     return NextResponse.json(fallbackPayload, {
       status: 200,
       headers: { "Access-Control-Allow-Origin": "*" },

@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emergency Alert</title>
     
-    <!-- Inclui o Tailwind CSS via CDN -->
+    <!-- Include Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Inclui a fonte Inter do Google Fonts (Link Corrigido) -->
+    <!-- Include Inter font from Google Fonts (Corrected Link) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     
-    <!-- Biblioteca Leaflet.js para o Mapa Interativo -->
+    <!-- Leaflet.js library for Interactive Map -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
@@ -25,18 +25,18 @@
             to { opacity: 1; transform: scale(1); }
         }
         
-        /* Estilos da MundPay */
+        /* MundPay styles */
         .mndpay_container { display: flex; flex-direction: column; width: 100%; max-width: 36rem; margin: 0 auto; gap: 1rem; }
         .mndpay_btn { background: #093b0a; border-radius: 10px; color: #ffffff; font-family: Arial; font-size: 18px; font-weight: 100; padding: 10px 20px; text-decoration: none; display: block; cursor: pointer; text-align: center; }
         .mndpay_downsell { background: #DC2626; border-radius: 10px; color: #FFFFFF; font-family: Arial; font-size: 18px; font-weight: 100; padding: 10px 20px; text-decoration: none; display: block; cursor: pointer; text-align: center; }
         @media (min-width: 640px) { .mndpay_container { flex-direction: column; } }
         
-        /* Estilo para o marcador pulsante no mapa do Leaflet */
+        /* Style for pulsing dot marker on Leaflet map */
         .pulsing-dot-marker {
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background-color: #ef4444; /* Cor: red-500 */
+            background-color: #ef4444; /* Color: red-500 */
             border: 2px solid white;
             box-shadow: 0 0 0 rgba(239, 68, 68, 0.4);
             animation: pulse 2s infinite;
@@ -75,7 +75,7 @@
         <!-- Profile Photo and Phone (exibido via JS se houver dados na URL) -->
         <div id="profile-card" class="border rounded-lg shadow-sm bg-white" style="display: none;">
             <div class="p-6 text-center">
-                <img id="profile-photo" src="" alt="Profile" class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mx-auto mb-4 border-4 border-green-500" style="display: none;">
+                <img id="profile-photo" src="/placeholder.svg" alt="Profile" class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mx-auto mb-4 border-4 border-green-500" style="display: none;">
                 <p id="phone-number" class="text-xl font-semibold text-green-600"></p>
             </div>
         </div>
@@ -155,7 +155,7 @@
                         <span id="location-text" class="font-semibold text-blue-800">Locating...</span>
                     </div>
                 </div>
-                <!-- Container para o Mapa Real do Leaflet -->
+                <!-- Container for the Real Map of Leaflet -->
                 <div id="map" class="h-64 rounded-lg z-0"></div>
             </div>
         </div>
@@ -165,7 +165,7 @@
             <div class="p-6 text-center">
                 <div class="mb-6">
                     <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-12 h-12 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13.37a1 1 0 0 1-1.41-1.41l1.41-1.41a1 1 0 0 1 1.41 1.41L2 13.37zM6.03 21.3a1 1 0 0 1-1.41-1.41l1.41-1.41a1 1 0 0 1 1.41 1.41l-1.41 1.41zM21.3 6.03a1 1 0 0 1-1.41-1.41l1.41-1.41a1 1 0 0 1 1.41 1.41l-1.41 1.41z"></path><path d="M19.07 19.07a1 1 0 0 1-1.41-1.41l1.41-1.41a1 1 0 0 1 1.41 1.41l-1.41 1.41zM2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0"></path><path d="M12 2a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zM4.93 4.93a1 1 0 0 1 1.41 0l1.41 1.41a1 1 0 0 1-1.41 1.41L4.93 6.34a1 1 0 0 1 0-1.41zM16.24 16.24a1 1 0 0 1 1.41 0l1.41 1.41a1 1 0 0 1-1.41 1.41l-1.41-1.41a1 1 0 0 1 0-1.41zM4.22 18.36a1 1 0 0 1 1.41-1.41l1.41 1.41a1 1 0 0 1-1.41 1.41l-1.41-1.41z"></path><circle cx="12" cy="12" r="4"></circle></svg>
+                        <svg class="w-12 h-12 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13.37a1 1 0 0 1-1.41-1.41l1.41-1.41a1 1 0 0 1 1.41 1.41L2 13.37zM6.03 21.3a1 1 0 0 1-1.41-1.41l1.41-1.41a1 1 0 0 1 1.41 1.41l-1.41 1.41z"></path><path d="M19.07 19.07a1 1 0 0 1-1.41-1.41l1.41-1.41a1 1 0 0 1 1.41 1.41l-1.41 1.41z"></path><path d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0"></path><path d="M12 2a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zM4.93 4.93a1 1 0 0 1 1.41 0l1.41 1.41a1 1 0 0 1-1.41 1.41L4.93 6.34a1 1 0 0 1 0-1.41zM16.24 16.24a1 1 0 0 1 1.41 0l1.41 1.41a1 1 0 0 1-1.41 1.41l-1.41-1.41a1 1 0 0 1 0-1.41zM4.22 18.36a1 1 0 0 1 1.41-1.41l1.41 1.41a1 1 0 0 1-1.41 1.41l-1.41-1.41z"></path><circle cx="12" cy="12" r="4"></circle></svg>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-4">You've reached the end of your free consultation.</h3>
                 </div>
@@ -222,20 +222,20 @@
         </div>
     </div>
 
-    <!-- JavaScript para toda a funcionalidade dinâmica da página -->
+    <!-- JavaScript for all dynamic page functionality -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Variável para guardar o mapa e garantir que seja inicializado apenas uma vez
+            // Variable to store the map and ensure it's initialized only once
             let map; 
 
-            // Função para formatar números com zero à esquerda (ex: 7 -> "07")
+            // Function to format numbers with leading zero (ex: 7 -> "07")
             const pad = (num) => String(num).padStart(2, '0');
 
-            // 1. Definir data e hora atuais
+            // 1. Set current date and time
             const now = new Date();
             document.getElementById('current-datetime').textContent = `${pad(now.getMonth() + 1)}/${pad(now.getDate())}/${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
 
-            // 2. Pegar parâmetros da URL para foto e telefone
+            // 2. Get URL parameters for photo and phone
             const urlParams = new URLSearchParams(window.location.search);
             const tel = urlParams.get("tel");
             const photo = urlParams.get("photo");
@@ -253,7 +253,7 @@
                 profileCard.style.display = 'block';
             }
 
-            // 3. Iniciar contador regressivo de 24 horas
+            // 3. Start 24-hour countdown timer
             let timeLeft = 24 * 60 * 60;
             const countdownTimerEl = document.getElementById('countdown-timer');
             const updateTimer = () => {
@@ -271,7 +271,7 @@
             const timerInterval = setInterval(updateTimer, 1000);
             updateTimer();
 
-            // 4. Gerar a lista de estatísticas dinamicamente
+            // 4. Generate statistics list dynamically
             const renderStats = (cityName) => {
                 const finalCity = cityName || "your area";
                 const stats = [
@@ -286,7 +286,7 @@
                 ];
                 
                 const statsContainer = document.getElementById('suspicious-stats-list');
-                statsContainer.innerHTML = ''; // Limpa antes de adicionar
+                statsContainer.innerHTML = ''; // Clear before adding
                 stats.forEach(stat => {
                     let descriptionHtml = `<span class="text-red-600 font-bold">${stat.count}</span> ${stat.description}`;
                     if (stat.keyword) {
@@ -304,12 +304,12 @@
                 });
             };
             
-            // 5. Função para atualizar a cidade, renderizar o mapa e as estatísticas
+            // 5. Function to update city, render map and statistics
             const setCityAndRender = (cityName, lat, lon) => {
                 const finalCity = cityName || "your area";
                 document.getElementById('location-text').textContent = `Last seen in ${finalCity}`;
                 
-                // Inicializa o mapa apenas se houver coordenadas e o mapa não existir
+                // Initialize map only if there are coordinates and map doesn't exist
                 if (lat && lon && !map) { 
                     map = L.map('map', {
                         zoomControl: false, 
@@ -328,11 +328,11 @@
                     L.marker([lat, lon], {icon: pulsingIcon}).addTo(map);
                 }
                 
-                // Atualiza as estatísticas com o nome da cidade
+                // Update statistics with city name
                 renderStats(finalCity);
             };
 
-            // 6. Tentar obter a geolocalização do usuário
+            // 6. Try to get user geolocation
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     (position) => {
@@ -343,23 +343,23 @@
                                 setCityAndRender(data.city || data.locality, latitude, longitude);
                             })
                             .catch(() => {
-                                setCityAndRender(null, latitude, longitude); // Mesmo com erro, usa as coordenadas para o mapa
+                                setCityAndRender(null, latitude, longitude); // Even with error, use coordinates for map
                             });
                     },
                     () => {
-                        // Fallback se o usuário negar a permissão
-                        const fallbackLat = 38.7167, fallbackLon = -9.1333; // Lisboa como fallback
+                        // Fallback if user denies permission
+                        const fallbackLat = 38.7167, fallbackLon = -9.1333; // Lisbon as fallback
                         setCityAndRender("your area", fallbackLat, fallbackLon); 
                     }
                 );
             } else {
-                 // Fallback se o navegador não suportar geolocalização
-                const fallbackLat = 38.7167, fallbackLon = -9.1333; // Lisboa como fallback
+                 // Fallback if browser doesn't support geolocation
+                const fallbackLat = 38.7167, fallbackLon = -9.1333; // Lisbon as fallback
                 setCityAndRender("your area", fallbackLat, fallbackLon);
             }
         });
     </script>
-    <!-- Script da MundPay para Upsell -->
+    <!-- MundPay script for Upsell -->
     <script src="https://upsell.mundpay.com/script.js"></script>
 </body>
 </html>

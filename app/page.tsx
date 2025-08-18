@@ -132,7 +132,7 @@ export default function ParentalMonitoringApp() {
   const [timeLeft, setTimeLeft] = useState(15 * 60)
   const [currentSlide, setCurrentSlide] = useState(0)
   const [verificationProgress, setVerificationProgress] = useState(0)
-  const [verificationMessage, setVerificationMessage] = useState("Iniciando análise...")
+  const [verificationMessage, setVerificationMessage] = useState("Starting analysis...")
   const [generatingProgress, setGeneratingProgress] = useState(0)
   const [generatingMessage, setGeneratingMessage] = useState("Analisando atividades nas redes sociais...")
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -148,12 +148,12 @@ export default function ParentalMonitoringApp() {
   const [photoError, setPhotoError] = useState("")
 
   const countries = [
-    { code: "+55", name: "Brasil", flag: "🇧🇷", placeholder: "(11) 99999-9999" },
-    { code: "+1", name: "Estados Unidos", flag: "🇺🇸", placeholder: "(555) 123-4567" },
-    { code: "+1", name: "Canadá", flag: "🇨🇦", placeholder: "(555) 123-4567" },
-    { code: "+44", name: "Reino Unido", flag: "🇬🇧", placeholder: "7911 123456" },
-    { code: "+33", name: "França", flag: "🇫🇷", placeholder: "6 12 34 56 78" },
-    { code: "+49", name: "Alemanha", flag: "🇩🇪", placeholder: "1512 3456789" },
+    { code: "+55", name: "Brazil", flag: "🇧🇷", placeholder: "(11) 99999-9999" },
+    { code: "+1", name: "United States", flag: "🇺🇸", placeholder: "(555) 123-4567" },
+    { code: "+1", name: "Canada", flag: "🇨🇦", placeholder: "(555) 123-4567" },
+    { code: "+44", name: "United Kingdom", flag: "🇬🇧", placeholder: "7911 123456" },
+    { code: "+33", name: "France", flag: "🇫🇷", placeholder: "6 12 34 56 78" },
+    { code: "+49", name: "Germany", flag: "🇩🇪", placeholder: "1512 3456789" },
   ]
 
   const filteredCountries = countries.filter(
@@ -247,14 +247,14 @@ export default function ParentalMonitoringApp() {
   useEffect(() => {
     if (currentStep === "verification") {
       const messages = [
-        { progress: 0, message: "Verificando atividades nas redes sociais..." },
-        { progress: 15, message: "Analisando dados de reconhecimento facial..." },
-        { progress: 30, message: "Verificando padrões de login recentes..." },
-        { progress: 45, message: "Escaneando WhatsApp, Discord e outras plataformas..." },
-        { progress: 60, message: "Detectando atividades suspeitas de localização..." },
-        { progress: 75, message: "Compilando evidências confidenciais..." },
-        { progress: 90, message: "Quase pronto - finalizando seu relatório..." },
-        { progress: 100, message: "Investigação concluída com sucesso!" },
+        { progress: 0, message: "Checking social media activities..." },
+        { progress: 15, message: "Analyzing facial recognition data..." },
+        { progress: 30, message: "Checking recent login patterns..." },
+        { progress: 45, message: "Scanning WhatsApp, Discord and other platforms..." },
+        { progress: 60, message: "Detecting suspicious location activities..." },
+        { progress: 75, message: "Compiling confidential evidence..." },
+        { progress: 90, message: "Almost ready - finalizing your report..." },
+        { progress: 100, message: "Investigation completed successfully!" },
       ]
 
       const interval = setInterval(() => {
@@ -282,10 +282,10 @@ export default function ParentalMonitoringApp() {
     if (currentStep === "generating") {
       const baseMessages = [
         { progress: 0, message: "Analisando fotos do perfil..." },
-        { progress: 20, message: "Processando histórico de mensagens..." },
-        { progress: 40, message: "Verificando localizações acessadas..." },
-        { progress: 60, message: "Compilando dados de atividade..." },
-        { progress: 80, message: "Criptografando informações sensíveis..." },
+        { progress: 20, message: "Processing message history..." },
+        { progress: 40, message: "Checking accessed locations..." },
+        { progress: 60, message: "Compiling activity data..." },
+        { progress: 80, message: "Encrypting sensitive information..." },
         { progress: 95, message: "Finalizando relatório completo..." },
         { progress: 100, message: "Relatório gerado com sucesso!" },
       ]
@@ -476,23 +476,23 @@ export default function ParentalMonitoringApp() {
     }
 
     const suspiciousNames = [
-      "Usuário Desconhecido",
-      "Contato Não Identificado",
-      "Perfil Suspeito",
-      "Conta Anônima",
-      "Usuário Oculto",
+      "Unknown User",
+      "Unidentified Contact",
+      "Suspicious Profile",
+      "Anonymous Account",
+      "Hidden User",
     ]
 
     const profiles = []
 
     for (let i = 0; i < 3; i++) {
       const name = suspiciousNames[Math.floor(Math.random() * suspiciousNames.length)]
-      const age = Math.floor(Math.random() * 10) + 15 // 15-25 anos
+      const age = Math.floor(Math.random() * 10) + 15 // 15-25 years old
 
       profiles.push({
         name,
         age,
-        lastSeen: `${Math.floor(Math.random() * 24)}h atrás`,
+        lastSeen: `${Math.floor(Math.random() * 24)}h ago`,
         description: "Atividade suspeita detectada",
         image: `https://images.unsplash.com/photo-${1500000000000 + Math.floor(Math.random() * 100000000)}?w=400&h=400&fit=crop&crop=face`,
       })
@@ -605,14 +605,31 @@ export default function ParentalMonitoringApp() {
             >
               <div className="max-w-4xl mx-auto text-center">
                 <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.1 }}
-                  className="mb-8 sm:mb-12"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="text-center mb-8 sm:mb-12"
                 >
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-blue-600 mb-4 sm:mb-6">
+                  <div className="flex items-center justify-center gap-3 mb-4 sm:mb-6">
+                    <div className="bg-blue-600 p-2 sm:p-3 rounded-full">
+                      <svg
+                        className="w-6 h-6 sm:w-8 sm:h-8 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-blue-600 mb-4 sm:mb-6 leading-tight">
                     Monitor Your Child's Activities
-                    <span className="block text-blue-500 mt-2">On Social Media</span>
+                    <span className="block text-blue-500 mt-2 font-black">On Social Media</span>
                   </h1>
                   <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
                     Discover conversations on <strong>Roblox</strong>, images exchanged via chat, suspicious{" "}
@@ -1270,25 +1287,25 @@ export default function ParentalMonitoringApp() {
                         <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                       </div>
                       <h3 className="text-xl sm:text-2xl font-bold text-[#333333] mb-3 sm:mb-4">
-                        🔓 DESBLOQUEAR RELATÓRIO COMPLETO
+                        🔓 UNLOCK COMPLETE REPORT
                       </h3>
                       <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                        Obtenha acesso instantâneo ao relatório completo com conversas não censuradas e histórico
-                        completo. Mesmo que tentem apagar, temos tudo salvo.
+                        Get instant access to the complete report with uncensored conversations and history complete.
+                        Even if they try to delete, we have everything saved.
                       </p>
                     </div>
 
                     <div className="bg-gradient-to-r from-red-500 to-red-600 text-white p-4 sm:p-6 rounded-xl shadow-lg mb-4 sm:mb-6">
                       <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3">
                         <AlertTriangle className="w-6 h-6 sm:w-8 sm:h-8 animate-pulse" />
-                        <span className="font-bold text-lg sm:text-xl">O RELATÓRIO SERÁ DELETADO EM:</span>
+                        <span className="font-bold text-lg sm:text-xl">THE REPORT WILL BE DELETED IN:</span>
                       </div>
                       <div className="text-center mb-3">
                         <div className="text-3xl sm:text-4xl font-bold mb-2">{formatTime(timeLeft)}</div>
                       </div>
                       <p className="text-sm sm:text-base text-center leading-relaxed opacity-90">
-                        Após o tempo expirar, este relatório será permanentemente removido por razões de privacidade.
-                        Mesmo que afirmem ter deletado, ainda temos acesso aos dados.
+                        After the time expires, this report will be permanently removed for privacy reasons. Even if
+                        they claim to have deleted it, we still have access to the data.
                       </p>
                     </div>
 
@@ -1298,15 +1315,13 @@ export default function ParentalMonitoringApp() {
                       }
                       className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 sm:py-4 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-4 sm:mb-6 overflow-hidden"
                     >
-                      <span className="block text-center leading-tight px-2">
-                        🔓 DESBLOQUEAR MEU RELATÓRIO COMPLETO
-                      </span>
+                      <span className="block text-center leading-tight px-2">🔓 UNLOCK MY COMPLETE REPORT</span>
                     </Button>
 
                     <div className="mt-4 sm:mt-6">
                       <p className="text-xs sm:text-sm text-gray-500 flex items-center justify-center gap-2 font-medium">
                         <Shield className="w-4 h-4" />
-                        100% Anônimo - Eles Nunca Saberão
+                        100% Anonymous - They'll Never Know
                       </p>
                     </div>
                   </CardContent>
