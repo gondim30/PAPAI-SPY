@@ -452,8 +452,20 @@ export default function ParentalMonitoringApp() {
 
   // Auto-scroll do carrossel
   useEffect(() => {
+    // Ensure page starts at the top
+    window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
     if (currentStep === "result") {
-      const interval = setInterval(nextSlide, 4000)
+      const interval = setInterval(() => {
+        // Only auto-advance if user hasn't scrolled recently
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+        if (scrollTop < 100) {
+          // Only auto-advance if near top of page
+          nextSlide()
+        }
+      }, 4000)
       return () => clearInterval(interval)
     }
   }, [currentStep])
