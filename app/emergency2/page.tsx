@@ -7,6 +7,17 @@ import { AlertTriangle, MessageSquare, ImageIcon, Video, Shield, Clock, CheckCir
 export default function Emergency2Page() {
   const [timeLeft, setTimeLeft] = useState(15 * 60) // 15 minutes in seconds
 
+  const offerMessages = {
+    exclusiveOffer: "EXCLUSIVE OFFER - LIMITED TIME",
+    recoverDeleted: "Recover Deleted Messages & Hidden Content",
+    offerExpires: "Offer expires in:",
+    discoverHiding: "Discover What They're Hiding From You",
+    congratulations: "Congratulations on your courage to seek the truth about your relationship.",
+    advancedApp: "Our advanced application allows you to recover all deleted messages, photos and videos",
+    exclusiveAvailable: "This exclusive offer is only available on this page.",
+    normallyValued: "Normally valued at $100, you can get it now for only $47 (over 50% off).",
+  }
+
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0))
@@ -42,18 +53,19 @@ export default function Emergency2Page() {
           >
             <div className="inline-flex items-center gap-2 bg-red-100 text-red-800 px-4 py-2 rounded-full mb-6">
               <AlertTriangle className="w-5 h-5" />
-              <span className="font-semibold">EXCLUSIVE OFFER - LIMITED TIME</span>
+              <span className="font-semibold">{offerMessages.exclusiveOffer}</span>
             </div>
 
             <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Recover <span className="text-red-600">Deleted Messages</span>
-              <br />& Hidden Content
+              {offerMessages.recoverDeleted}
             </h1>
 
             <div className="bg-white rounded-lg p-6 shadow-xl border-2 border-red-200 mb-8">
               <div className="flex items-center justify-center gap-2 text-red-600 mb-4">
                 <Clock className="w-6 h-6" />
-                <span className="text-xl font-bold">Offer expires in: {formatTime(timeLeft)}</span>
+                <span className="text-xl font-bold">
+                  {offerMessages.offerExpires} {formatTime(timeLeft)}
+                </span>
               </div>
             </div>
           </motion.div>
@@ -66,25 +78,22 @@ export default function Emergency2Page() {
           >
             <div className="mb-12">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
-                Discover What They're Hiding From You
+                {offerMessages.discoverHiding}
               </h2>
 
               <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                 <p className="text-xl mb-6">
-                  <strong>Congratulations on your courage to seek the truth about your relationship.</strong> It's
-                  painful to imagine your loved one sharing moments with someone else, but you have the intelligence and
-                  determination to discover the truth.
+                  <strong>{offerMessages.congratulations}</strong> It's painful to imagine your loved one sharing
+                  moments with someone else, but you have the intelligence and determination to discover the truth.
                 </p>
 
                 <p className="text-lg mb-6">
-                  Our advanced application allows you to{" "}
-                  <strong>recover all deleted messages, photos and videos</strong> without letting any secret be hidden
-                  from you.
+                  {offerMessages.advancedApp} without letting any secret be hidden from you.
                 </p>
 
                 <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-6 mb-6">
                   <p className="text-lg mb-4">
-                    <strong>This exclusive offer is only available on this page.</strong> Normally valued at{" "}
+                    <strong>{offerMessages.exclusiveAvailable}</strong> Normally valued at{" "}
                     <span className="line-through text-red-500">$100</span>, you can get it now for only{" "}
                     <span className="text-green-600 font-bold text-2xl">$47</span> (over 50% off).
                   </p>

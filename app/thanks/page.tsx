@@ -22,6 +22,21 @@ export default function ThanksPage() {
     { icon: Mail, label: "Email Delivery", status: "pending" },
   ]
 
+  const thanksMessages = {
+    paymentSuccessful: "Payment Successful!",
+    thankYou: "Thank you for your purchase. Your complete report is being processed.",
+    completeReportDelivery: "Complete Report Delivery",
+    estimatedDelivery: "Estimated Delivery: Within 7 days",
+    paymentConfirmed: "Payment Confirmed",
+    reportProcessing: "Report Processing",
+    emailDelivery: "Email Delivery",
+    whatsIncluded: "What's Included",
+    importantNotice: "Important Notice",
+    checkEmail: "Please check your email regularly, including your spam/junk folder.",
+    secureEmail: "The report will be sent from a secure email address.",
+    contactSupport: "If you don't receive it within 7 days, please contact our support team.",
+  }
+
   return (
     <div className="min-h-screen bg-black">
       <div className="container mx-auto px-4 py-8">
@@ -42,10 +57,8 @@ export default function ThanksPage() {
               <CheckCircle className="w-10 h-10 text-white" />
             </motion.div>
 
-            <h1 className="text-4xl font-bold text-white mb-2">🎉 Payment Successful!</h1>
-            <p className="text-xl text-gray-300">
-              Thank you for your purchase. Your complete report is being processed.
-            </p>
+            <h1 className="text-4xl font-bold text-white mb-2">🎉 {thanksMessages.paymentSuccessful}</h1>
+            <p className="text-xl text-gray-300">{thanksMessages.thankYou}</p>
           </div>
 
           {/* Main Content Card */}
@@ -53,9 +66,11 @@ export default function ThanksPage() {
             <CardContent className="p-8">
               {/* Report Delivery Section */}
               <div className="mb-8">
-                <h2 className="text-2xl font-bold text-white mb-4 flex items-center">📩 Complete Report Delivery</h2>
+                <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
+                  📩 {thanksMessages.completeReportDelivery}
+                </h2>
                 <p className="text-lg text-gray-300 mb-6">
-                  <strong>Estimated Delivery:</strong> Within 7 days
+                  <strong>{thanksMessages.estimatedDelivery}</strong>
                 </p>
 
                 {/* Process Steps */}
@@ -112,7 +127,9 @@ export default function ThanksPage() {
 
               {/* What's Included */}
               <div className="mb-8">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-center">📦 What's Included</h3>
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  📦 {thanksMessages.whatsIncluded}
+                </h3>
                 <div className="space-y-3">
                   {reportItems.map((item, index) => (
                     <motion.div
@@ -139,12 +156,11 @@ export default function ThanksPage() {
                 <div className="flex items-start">
                   <AlertTriangle className="w-6 h-6 text-yellow-400 mr-3 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-yellow-300 mb-2">⚠️ Important Notice</h4>
+                    <h4 className="font-semibold text-yellow-300 mb-2">⚠️ {thanksMessages.importantNotice}</h4>
                     <p className="text-yellow-200 leading-relaxed">
-                      Please check your email regularly, including your spam/junk folder. The report will be sent from a
-                      secure email address.
+                      {thanksMessages.checkEmail}
                       <br />
-                      <strong>If you don't receive it within 7 days, please contact our support team.</strong>
+                      <strong>{thanksMessages.contactSupport}</strong>
                     </p>
                   </div>
                 </div>

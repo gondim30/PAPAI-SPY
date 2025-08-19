@@ -281,19 +281,19 @@ export default function ParentalMonitoringApp() {
   useEffect(() => {
     if (currentStep === "generating") {
       const baseMessages = [
-        { progress: 0, message: "Analisando fotos do perfil..." },
+        { progress: 0, message: "Analyzing profile photos..." },
         { progress: 20, message: "Processing message history..." },
         { progress: 40, message: "Checking accessed locations..." },
         { progress: 60, message: "Compiling activity data..." },
         { progress: 80, message: "Encrypting sensitive information..." },
-        { progress: 95, message: "Finalizando relatório completo..." },
-        { progress: 100, message: "Relatório gerado com sucesso!" },
+        { progress: 95, message: "Finalizing complete report..." },
+        { progress: 100, message: "Report generated successfully!" },
       ]
 
       const messages = city
         ? [
             ...baseMessages.slice(0, 2),
-            { progress: 30, message: `Analisando atividades recentes na região de ${city}...` },
+            { progress: 30, message: `Analyzing recent activities in the ${city} region...` },
             ...baseMessages.slice(2),
           ]
         : baseMessages
@@ -367,7 +367,7 @@ export default function ParentalMonitoringApp() {
           "https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=",
         )
         setIsPhotoPrivate(true)
-        setPhotoError("Não foi possível carregar a foto")
+        setPhotoError("Could not load photo")
         return
       }
 
@@ -661,7 +661,7 @@ export default function ParentalMonitoringApp() {
                 <motion.div
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3 }}
+                  transition={{ delay: 0.2 }}
                   className="grid sm:grid-cols-3 gap-6 mb-8 sm:mb-12"
                 >
                   <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 bg-gray-900 border-gray-700">
@@ -921,7 +921,7 @@ export default function ParentalMonitoringApp() {
                     </div>
 
                     <h2 className="text-xl sm:text-2xl font-bold text-[#333333] mb-4 sm:mb-6">
-                      🔍 Escaneando Todas as Plataformas...
+                      🔍 Scanning All Platforms...
                     </h2>
 
                     <div className="mb-6 sm:mb-8">
@@ -933,27 +933,25 @@ export default function ParentalMonitoringApp() {
                       <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
                         <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full animate-pulse" />
                         <span className="text-xs sm:text-sm text-gray-700 font-medium">
-                          WhatsApp, Discord, TikTok escaneando...
+                          WhatsApp, Discord, TikTok scanning...
                         </span>
                       </div>
                       <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
                         <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-500 rounded-full animate-pulse" />
                         <span className="text-xs sm:text-sm text-gray-700 font-medium">
-                          Processamento de reconhecimento facial...
+                          Facial recognition processing...
                         </span>
                       </div>
                       <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
                         <div className="w-2 h-2 sm:w-3 sm:h-3 bg-purple-500 rounded-full animate-pulse" />
-                        <span className="text-xs sm:text-sm text-gray-700 font-medium">
-                          Análise de dados de localização...
-                        </span>
+                        <span className="text-xs sm:text-sm text-gray-700 font-medium">Location data analysis...</span>
                       </div>
                     </div>
 
                     <div className="text-center">
                       <p className="text-xs sm:text-sm text-gray-500 flex items-center justify-center gap-2 font-medium">
                         <Lock className="w-4 h-4" />
-                        Conexão segura e criptografada - Nenhum rastro deixado
+                        Secure and encrypted connection - No trace left
                       </p>
                     </div>
                   </CardContent>
@@ -978,18 +976,17 @@ export default function ParentalMonitoringApp() {
                         <AlertTriangle className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                       </div>
                       <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#333333] mb-3 sm:mb-4">
-                        Encontramos Atividades Suspeitas...
+                        We Found Suspicious Activities...
                       </h2>
                     </div>
 
                     <div className="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
                       <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                         <AlertTriangle className="w-6 h-6 sm:w-8 sm:h-8 text-red-500 flex-shrink-0" />
-                        <h3 className="text-lg sm:text-xl font-bold text-red-700">ATIVIDADES SUSPEITAS DETECTADAS</h3>
+                        <h3 className="text-lg sm:text-xl font-bold text-red-700">SUSPICIOUS ACTIVITIES DETECTED</h3>
                       </div>
                       <p className="text-sm sm:text-base text-red-600 font-medium leading-relaxed">
-                        Nosso sistema descobriu múltiplas atividades suspeitas vinculadas a esta pessoa em 3 plataformas
-                        diferentes.
+                        Our system discovered multiple suspicious activities linked to this person on 3 platforms
                       </p>
                     </div>
 
@@ -998,21 +995,10 @@ export default function ParentalMonitoringApp() {
                         <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
                         <div>
                           <h4 className="font-bold text-[#333333] text-sm sm:text-base mb-1 sm:mb-2">
-                            Última Atividade: 18 horas atrás
-                          </h4>
-                          <p className="text-xs sm:text-sm text-gray-600">Apesar de afirmar que 'deletou tudo'...</p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 bg-gray-50 rounded-xl">
-                        <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
-                        <div>
-                          <h4 className="font-bold text-[#333333] text-sm sm:text-base mb-1 sm:mb-2">
-                            4 Plataformas Atualmente Ativas
+                            Last Activity: 18 hours ago
                           </h4>
                           <p className="text-xs sm:text-sm text-gray-600">
-                            WhatsApp, Discord, TikTok e uma{" "}
-                            <span className="animate-pulse text-red-500 font-bold">plataforma crítica +18</span>
+                            Despite claiming to have 'deleted everything'...
                           </p>
                         </div>
                       </div>
@@ -1021,10 +1007,23 @@ export default function ParentalMonitoringApp() {
                         <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
                         <div>
                           <h4 className="font-bold text-[#333333] text-sm sm:text-base mb-1 sm:mb-2">
-                            Conversas Recentes Detectadas
+                            4 Currently Active Platforms
                           </h4>
                           <p className="text-xs sm:text-sm text-gray-600">
-                            Mensagens ativas com múltiplos contatos e grupos esta semana
+                            WhatsApp, Discord, TikTok and one{" "}
+                            <span className="animate-pulse text-red-500 font-bold">critical platform +18</span>
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 bg-gray-50 rounded-xl">
+                        <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-bold text-[#333333] text-sm sm:text-base mb-1 sm:mb-2">
+                            Recent Conversations Detected
+                          </h4>
+                          <p className="text-xs sm:text-sm text-gray-600">
+                            Active messages with multiple contacts and groups this week
                           </p>
                         </div>
                       </div>
@@ -1036,25 +1035,25 @@ export default function ParentalMonitoringApp() {
                           <span className="text-white text-xs sm:text-sm font-bold">💡</span>
                         </div>
                         <h3 className="text-base sm:text-lg font-bold text-blue-700">
-                          O que você verá no Relatório Completo:
+                          What you will see in the Complete Report:
                         </h3>
                       </div>
                       <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-blue-600">
                         <li className="flex items-center gap-2 sm:gap-3">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0" />
-                          Capturas de tela de todos os perfis ativos
+                          Screenshots of all active profiles
                         </li>
                         <li className="flex items-center gap-2 sm:gap-3">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0" />
-                          Conversas no Discord
+                          Discord conversations
                         </li>
                         <li className="flex items-center gap-2 sm:gap-3">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0" />
-                          Localizações exatas onde estiveram navegando
+                          Exact locations where they have been browsing
                         </li>
                         <li className="flex items-center gap-2 sm:gap-3">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0" />
-                          Cronograma de todas as atividades (você ficará chocado)
+                          Timeline of all activities (you will be shocked)
                         </li>
                       </ul>
                     </div>
@@ -1064,14 +1063,14 @@ export default function ParentalMonitoringApp() {
                       className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 sm:py-4 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-4 sm:mb-6 overflow-hidden flex items-center justify-center text-center"
                     >
                       <span className="block text-center leading-tight px-2 break-words whitespace-normal">
-                        🔓 DESBLOQUEAR EVIDÊNCIAS COMPLETAS – VER TUDO
+                        🔓 UNLOCK COMPLETE EVIDENCE – SEE EVERYTHING
                       </span>
                     </Button>
 
                     <div className="text-center">
                       <p className="text-xs sm:text-sm text-gray-500 flex items-center justify-center gap-2 font-medium">
                         <Lock className="w-4 h-4" />
-                        Anonimato completo garantido - Eles nunca saberão que você verificou
+                        Complete anonymity guaranteed - They will never know you checked
                       </p>
                     </div>
                   </CardContent>
@@ -1097,7 +1096,7 @@ export default function ParentalMonitoringApp() {
                     </div>
 
                     <h2 className="text-xl sm:text-2xl font-bold text-[#333333] mb-4 sm:mb-6">
-                      📊 Gerando Relatório Completo...
+                      📊 Generating Complete Report...
                     </h2>
 
                     <div className="mb-6 sm:mb-8">
@@ -1149,10 +1148,8 @@ export default function ParentalMonitoringApp() {
                     <div className="flex items-center gap-2 sm:gap-3">
                       <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse" />
                       <div>
-                        <h3 className="font-bold text-sm sm:text-base">
-                          🚨 PERFIL ENCONTRADO - ATIVO NAS REDES SOCIAIS
-                        </h3>
-                        <p className="text-xs sm:text-sm opacity-90">Última visualização: Online agora</p>
+                        <h3 className="font-bold text-sm sm:text-base">🚨 PROFILE FOUND - ACTIVE ON SOCIAL NETWORKS</h3>
+                        <p className="text-xs sm:text-sm opacity-90">Last viewed: Online now</p>
                       </div>
                     </div>
                   </div>
@@ -1161,10 +1158,10 @@ export default function ParentalMonitoringApp() {
                     <div className="flex items-center gap-2 sm:gap-3">
                       <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6" />
                       <div>
-                        <h3 className="font-bold text-sm sm:text-base">⚠️ ATENÇÃO: PERFIL ATIVO ENCONTRADO!</h3>
+                        <h3 className="font-bold text-sm sm:text-base">⚠️ ATTENTION: ACTIVE PROFILE FOUND!</h3>
                         <p className="text-xs sm:text-sm opacity-90">
-                          Confirmamos que este número está vinculado a um perfil ATIVO nas redes sociais. Registros de
-                          uso mais recentes detectados em {city || "sua área"}.
+                          We confirm that this number is linked to an ACTIVE profile on social networks. Most recent
+                          usage records detected in {city || "your area"}.
                         </p>
                       </div>
                     </div>
@@ -1174,26 +1171,26 @@ export default function ParentalMonitoringApp() {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
                   <div className="bg-white rounded-xl p-3 sm:p-4 text-center shadow-lg">
                     <div className="text-xl sm:text-2xl font-bold text-red-500 mb-1">6</div>
-                    <div className="text-xs sm:text-sm text-gray-600 font-medium">CONTATOS (7 DIAS)</div>
+                    <div className="text-xs sm:text-sm text-gray-600 font-medium">CONTACTS (7 DAYS)</div>
                   </div>
                   <div className="bg-white rounded-xl p-3 sm:p-4 text-center shadow-lg">
                     <div className="text-xl sm:text-2xl font-bold text-orange-500 mb-1">30</div>
-                    <div className="text-xs sm:text-sm text-gray-600 font-medium">MENSAGENS (7 DIAS)</div>
+                    <div className="text-xs sm:text-sm text-gray-600 font-medium">MESSAGES (7 DAYS)</div>
                   </div>
                   <div className="bg-white rounded-xl p-3 sm:p-4 text-center shadow-lg">
                     <div className="text-xl sm:text-2xl font-bold text-purple-500 mb-1">4</div>
-                    <div className="text-xs sm:text-sm text-gray-600 font-medium">CHATS ATIVOS</div>
+                    <div className="text-xs sm:text-sm text-gray-600 font-medium">ACTIVE CHATS</div>
                   </div>
                   <div className="bg-white rounded-xl p-3 sm:p-4 text-center shadow-lg">
                     <div className="text-xl sm:text-2xl font-bold text-green-500 mb-1">12h</div>
-                    <div className="text-xs sm:text-sm text-gray-600 font-medium">ÚLTIMA ATIVIDADE</div>
+                    <div className="text-xs sm:text-sm text-gray-600 font-medium">LAST ACTIVITY</div>
                   </div>
                 </div>
 
                 <Card className="bg-white rounded-2xl shadow-lg border-0 mb-6 sm:mb-8">
                   <CardContent className="p-4 sm:p-6">
                     <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-4 sm:mb-6">
-                      🔥 CONTATOS SUSPEITOS ENCONTRADOS
+                      🔥 SUSPICIOUS CONTACTS FOUND
                     </h3>
                     <div className="space-y-3 sm:space-y-4">
                       {generateSuspiciousContacts().map((profile, index) => (
@@ -1216,11 +1213,11 @@ export default function ParentalMonitoringApp() {
                 <Card className="bg-white rounded-2xl shadow-lg border-0 mb-6 sm:mb-8">
                   <CardContent className="p-4 sm:p-6">
                     <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-4 sm:mb-6">
-                      📸 CONVERSAS CENSURADAS
+                      📸 CENSORED CONVERSATIONS
                     </h3>
                     <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                      Obtenha acesso instantâneo ao relatório completo com conversas não censuradas e histórico
-                      completo. Mesmo que tentem apagar, temos tudo salvo.
+                      Get instant access to the complete report with uncensored conversations and history complete. Even
+                      if they try to delete it, we have everything saved.
                     </p>
 
                     <div className="relative">
@@ -1370,44 +1367,43 @@ export default function ParentalMonitoringApp() {
                         🔥 62% OFF - TEMPO LIMITADO
                       </div>
                       <p className="text-sm sm:text-base text-gray-600 font-medium">
-                        Pagamento único para acesso vitalício ao seu relatório completo
+                        One-time payment for lifetime access to your complete report
                       </p>
                     </div>
 
                     <div className="text-left mb-6 sm:mb-8">
                       <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-4 sm:mb-6 text-center">
-                        O que você desbloqueará:
+                        What you will unlock:
                       </h3>
                       <div className="space-y-3 sm:space-y-4">
                         <div className="flex items-start gap-3 sm:gap-4">
                           <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
                           <span className="text-sm sm:text-base text-gray-700 font-medium">
-                            Todas as Fotos do Perfil (incluindo aquelas que eles pensam que você nunca verá)
+                            All Profile Photos (including those they think you'll never see)
                           </span>
                         </div>
                         <div className="flex items-start gap-3 sm:gap-4">
                           <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
                           <span className="text-sm sm:text-base text-gray-700 font-medium">
-                            Histórico Completo de Conversas (veja exatamente o que eles estão dizendo para outras
-                            pessoas)
+                            Complete Conversation History (see exactly what they're saying to other people)
                           </span>
                         </div>
                         <div className="flex items-start gap-3 sm:gap-4">
                           <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
                           <span className="text-sm sm:text-base text-gray-700 font-medium">
-                            Dados Exatos de Localização (onde eles estiveram 'trabalhando até tarde' ou 'com amigos')
+                            Exact Location Data (where they've been 'working late' or 'with friends')
                           </span>
                         </div>
                         <div className="flex items-start gap-3 sm:gap-4">
                           <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
                           <span className="text-sm sm:text-base text-gray-700 font-medium">
-                            Contatos Ativos e Mensagens (nomes, fotos e frequência de chat)
+                            Active Contacts and Messages (names, photos and chat frequency)
                           </span>
                         </div>
                         <div className="flex items-start gap-3 sm:gap-4">
                           <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
                           <span className="text-sm sm:text-base text-gray-700 font-medium">
-                            Cronograma de Todas as Atividades (quando eles estavam mais ativos enquanto com você)
+                            Timeline of All Activities (when they were most active while with you)
                           </span>
                         </div>
                       </div>
@@ -1435,7 +1431,7 @@ export default function ParentalMonitoringApp() {
                       </div>
                       <div className="text-2xl sm:text-3xl font-bold text-red-600 mb-2">{formatTime(timeLeft)}</div>
                       <p className="text-xs sm:text-sm text-red-600">
-                        Esta é sua única chance de acessar este relatório. Uma vez deletado, não pode ser recuperado.
+                        This is your only chance to access this report. Once deleted, it cannot be recovered.
                       </p>
                     </div>
 
@@ -1444,14 +1440,14 @@ export default function ParentalMonitoringApp() {
                       className="w-full bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-4 sm:py-6 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-4 sm:mb-6 overflow-hidden"
                     >
                       <span className="block text-center leading-tight px-2">
-                        🔓 DESBLOQUEAR MEU RELATÓRIO - ESTOU PRONTO PARA A VERDADE
+                        🔓 UNLOCK MY REPORT - I'M READY FOR THE TRUTH
                       </span>
                     </Button>
 
                     <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 sm:p-6 mb-4 sm:mb-6">
                       <p className="text-sm sm:text-base text-blue-700 font-medium leading-relaxed">
-                        Você não está invadindo a privacidade - você está protegendo seu bem-estar emocional. Você tem o
-                        direito de tomar decisões informadas sobre seu relacionamento.
+                        You're not invading privacy - you're protecting your emotional well-being. You have the right to
+                        make informed decisions about your relationship.
                       </p>
                     </div>
 
@@ -1468,7 +1464,7 @@ export default function ParentalMonitoringApp() {
                             <p className="text-xs sm:text-sm text-green-600 font-medium">✓ Usuário Verificado</p>
                           </div>
                           <p className="text-sm sm:text-base text-gray-600 italic leading-relaxed">
-                            "Eu gostaria de ter feito isso meses atrás. Teria me poupado tanta ansiedade e tempo
+                            "I wish I had done this months ago. It would have saved me so much anxiety and time
                             perdido."
                           </p>
                           <div className="flex items-center text-[#FFD700] text-sm mt-2">
