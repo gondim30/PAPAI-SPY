@@ -146,6 +146,7 @@ export default function ParentalMonitoringApp() {
   const [cityChange, setCityChange] = useState<string | null>(null)
   const [countrySearch, setCountrySearch] = useState("")
   const [photoError, setPhotoError] = useState("")
+  const [childPhoto, setChildPhoto] = useState<string | null>(null)
 
   const countries = [
     { code: "+55", name: "Brazil", flag: "🇧🇷", placeholder: "(11) 99999-9999" },
@@ -722,58 +723,129 @@ export default function ParentalMonitoringApp() {
                 <Card className="p-6 sm:p-8 shadow-xl border-0 bg-white/80 backdrop-blur-sm">
                   <CardContent className="p-0">
                     <div className="text-center mb-6 sm:mb-8">
-                      <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
-                        Your Child's Information
+                      <h2 className="text-2xl sm:text-3xl font-black text-blue-600 mb-4 sm:mb-6 text-center">
+                        🔍 Advanced Facial Recognition
                       </h2>
-                      <p className="text-gray-600 text-sm sm:text-base">
-                        Fill in the details to start monitoring social media activities
+                      <p className="text-black font-medium mb-4">
+                        Upload your child's photo for AI-powered identification across all platforms
+                      </p>
+                      <div className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 p-6 rounded-2xl border border-blue-500/30">
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0]
+                            if (file) {
+                              const reader = new FileReader()
+                              reader.onload = (e) => {
+                                setChildPhoto(e.target?.result as string)
+                              }
+                              reader.readAsDataURL(file)
+                            }
+                          }}
+                          className="hidden"
+                          id="photo-upload"
+                        />
+                        <label htmlFor="photo-upload" className="cursor-pointer">
+                          {childPhoto ? (
+                            <div className="space-y-4">
+                              <img
+                                src={childPhoto || "/placeholder.svg"}
+                                alt="Child's photo"
+                                className="w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover mx-auto border-4 border-green-400 shadow-lg shadow-green-400/20"
+                              />
+                              <div className="bg-green-500/20 border border-green-400 rounded-xl p-3">
+                                <p className="text-green-300 font-bold text-sm sm:text-base">
+                                  ✓ Photo Uploaded Successfully
+                                </p>
+                                <p className="text-green-200 text-xs sm:text-sm">Facial recognition system activated</p>
+                              </div>
+                              <p className="text-black text-xs sm:text-sm font-medium">Click to change photo</p>
+                            </div>
+                          ) : (
+                            <div className="space-y-4">
+                              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto flex items-center justify-center shadow-lg">
+                                <svg
+                                  className="w-10 h-10 sm:w-12 sm:h-12 text-white"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                                  />
+                                </svg>
+                              </div>
+                              <div>
+                                <p className="text-lg sm:text-xl font-bold text-white">Upload Child's Photo</p>
+                                <p className="text-black font-medium text-sm sm:text-base mt-2">
+                                  Enable advanced facial recognition across all social platforms
+                                </p>
+                              </div>
+                            </div>
+                          )}
+                        </label>
+                      </div>
+                      <div className="bg-blue-900/20 border border-blue-400/30 rounded-xl p-4 mt-4">
+                        <p className="text-black text-xs sm:text-sm font-medium">
+                          🤖 Our AI technology will identify your child across different social media platforms using
+                          advanced facial recognition algorithms.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mb-6">
+                      <label className="block text-lg sm:text-xl font-bold text-blue-600 mb-3">
+                        👤 Child/Teen Name
+                      </label>
+                      <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-1 rounded-xl">
+                        <Input
+                          type="text"
+                          placeholder="Enter your child's full name"
+                          value={childName}
+                          onChange={(e) => setChildName(e.target.value)}
+                          className="py-3 sm:py-4 px-4 sm:px-5 text-base sm:text-lg font-medium rounded-xl bg-gray-800 border-2 border-blue-500/50 text-white placeholder-gray-300 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 transition-all duration-200"
+                        />
+                      </div>
+                      <p className="text-black text-xs sm:text-sm mt-2 font-medium">
+                        This name will be used to identify your child across all platforms
                       </p>
                     </div>
 
-                    <div className="space-y-6">
-                      <div>
-                        <label className="block text-sm sm:text-base font-semibold text-[#333333] mb-2 sm:mb-3">
-                          Child/Teen Name
-                        </label>
-                        <Input
-                          type="text"
-                          placeholder="Enter your child's name"
-                          value={childName}
-                          onChange={(e) => setChildName(e.target.value)}
-                          className="py-2 sm:py-3 px-3 sm:px-4 text-sm sm:text-base rounded-xl border-gray-300 focus:border-blue-500 focus:ring-blue-500"
-                        />
-                      </div>
+                    <div>
+                      <label className="block text-sm sm:text-base font-semibold text-[#333333] mb-2 sm:mb-3">
+                        Age
+                      </label>
+                      <Input
+                        type="number"
+                        placeholder="Your child's age"
+                        value={childAge}
+                        onChange={(e) => setChildAge(e.target.value)}
+                        className="py-2 sm:py-3 px-3 sm:px-4 text-sm sm:text-base rounded-xl border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                        min="8"
+                        max="18"
+                      />
+                    </div>
 
-                      <div>
-                        <label className="block text-sm sm:text-base font-semibold text-[#333333] mb-2 sm:mb-3">
-                          Age
-                        </label>
-                        <Input
-                          type="number"
-                          placeholder="Your child's age"
-                          value={childAge}
-                          onChange={(e) => setChildAge(e.target.value)}
-                          className="py-2 sm:py-3 px-3 sm:px-4 text-sm sm:text-base rounded-xl border-gray-300 focus:border-blue-500 focus:ring-blue-500"
-                          min="8"
-                          max="18"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm sm:text-base font-semibold text-white mb-2 sm:mb-3">
-                          Your child's WhatsApp number
-                        </label>
+                    <div>
+                      <label className="block text-lg sm:text-xl font-bold text-blue-600 mb-3">
+                        📱 Your child's WhatsApp number
+                      </label>
+                      <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-1 rounded-xl">
                         <div className="flex gap-2 sm:gap-3">
                           <div className="relative">
                             <button
                               type="button"
                               onClick={() => setShowCountryDropdown(!showCountryDropdown)}
-                              className="bg-gray-800 px-3 sm:px-4 py-2 sm:py-3 rounded-xl border border-gray-600 text-gray-300 flex-shrink-0 font-medium text-sm sm:text-base flex items-center gap-2 hover:bg-gray-700 transition-colors duration-200 min-w-[80px] sm:min-w-[90px]"
+                              className="bg-gray-800 border-2 border-blue-500/50 px-3 sm:px-4 py-3 sm:py-4 rounded-xl text-white flex-shrink-0 font-bold text-sm sm:text-base flex items-center gap-2 hover:bg-gray-700 hover:border-blue-400 transition-all duration-200 min-w-[80px] sm:min-w-[90px]"
                             >
                               <span className="text-lg">{selectedCountry.flag}</span>
-                              <span>{selectedCountry.code}</span>
+                              <span className="text-black">{selectedCountry.code}</span>
                               <svg
-                                className="w-3 h-3 sm:w-4 sm:h-4"
+                                className="w-3 h-3 sm:w-4 sm:h-4 text-black"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -809,72 +881,45 @@ export default function ParentalMonitoringApp() {
                             placeholder={selectedCountry.placeholder}
                             value={phoneNumber}
                             onChange={(e) => handlePhoneChange(e.target.value)}
-                            className="flex-1 py-2 sm:py-3 px-3 sm:px-4 text-sm sm:text-base rounded-xl bg-gray-800 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
+                            className="flex-1 py-3 sm:py-4 px-4 sm:px-5 text-base sm:text-lg font-medium rounded-xl bg-gray-800 border-2 border-blue-500/50 text-white placeholder-gray-300 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 transition-all duration-200"
                           />
                         </div>
-                        <p className="text-xs sm:text-sm text-gray-400 mt-2 font-medium">
-                          Used to identify your child's profile and monitor suspicious WhatsApp activities.
-                        </p>
-
-                        {(profilePhoto || isLoadingPhoto) && (
-                          <div className="mt-4 p-3 sm:p-4 bg-gray-800 rounded-xl border border-gray-600">
-                            <div className="flex items-center gap-3 sm:gap-4">
-                              {isLoadingPhoto ? (
-                                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-700 rounded-xl animate-pulse" />
-                              ) : (
-                                <img
-                                  src={profilePhoto || "/placeholder.svg"}
-                                  alt="WhatsApp Profile"
-                                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl object-cover border-2 border-gray-600"
-                                />
-                              )}
-                              <div className="flex-1">
-                                <p className="font-semibold text-white text-sm sm:text-base">
-                                  WhatsApp Profile Identified
-                                </p>
-                                <p className="text-xs sm:text-sm text-gray-400 mt-1">
-                                  Profile photo found - monitoring active
-                                </p>
-                                {isPhotoPrivate && (
-                                  <p className="text-xs text-yellow-400 mt-1 font-medium">
-                                    ⚠️ Profile with privacy enabled - may indicate secretive behavior
-                                  </p>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                        )}
                       </div>
-
-                      <div>
-                        <label className="block text-sm sm:text-base font-semibold text-[#333333] mb-2 sm:mb-3">
-                          Platforms to Monitor
-                        </label>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                          {monitoringPlatforms.map((platform) => (
-                            <button
-                              key={platform.name}
-                              type="button"
-                              onClick={() => togglePlatform(platform.name)}
-                              disabled={platform.name === "WhatsApp"}
-                              className={`p-3 rounded-xl border-2 transition-all duration-200 ${
-                                selectedPlatforms.includes(platform.name)
-                                  ? "border-blue-500 bg-blue-50"
-                                  : "border-gray-200 bg-white hover:border-gray-300"
-                              } ${platform.name === "WhatsApp" ? "opacity-100" : ""}`}
-                            >
-                              <platform.icon className={`w-6 h-6 mx-auto mb-2 ${platform.color}`} />
-                              <p className="text-sm font-medium text-gray-900">{platform.name}</p>
-                              {platform.name === "WhatsApp" && (
-                                <p className="text-xs text-blue-600 mt-1">Always included</p>
-                              )}
-                            </button>
-                          ))}
-                        </div>
-                        <p className="text-xs sm:text-sm text-gray-500 mt-2">
-                          Select the platforms you want to monitor. WhatsApp is always included.
+                      <div className="bg-orange-900/20 border border-orange-400/30 rounded-xl p-3 mt-3">
+                        <p className="text-orange-200 text-xs sm:text-sm font-bold">
+                          ⚡ We'll scan this number across all social platforms to detect suspicious activities
                         </p>
                       </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm sm:text-base font-semibold text-[#333333] mb-2 sm:mb-3">
+                        Platforms to Monitor
+                      </label>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        {monitoringPlatforms.map((platform) => (
+                          <button
+                            key={platform.name}
+                            type="button"
+                            onClick={() => togglePlatform(platform.name)}
+                            disabled={platform.name === "WhatsApp"}
+                            className={`p-3 rounded-xl border-2 transition-all duration-200 ${
+                              selectedPlatforms.includes(platform.name)
+                                ? "border-blue-500 bg-blue-50"
+                                : "border-gray-200 bg-white hover:border-gray-300"
+                            } ${platform.name === "WhatsApp" ? "opacity-100" : ""}`}
+                          >
+                            <platform.icon className={`w-6 h-6 mx-auto mb-2 ${platform.color}`} />
+                            <p className="text-sm font-medium text-gray-900">{platform.name}</p>
+                            {platform.name === "WhatsApp" && (
+                              <p className="text-xs text-blue-600 mt-1">Always included</p>
+                            )}
+                          </button>
+                        ))}
+                      </div>
+                      <p className="text-xs sm:text-sm text-gray-500 mt-2">
+                        Select the platforms you want to monitor. WhatsApp is always included.
+                      </p>
                     </div>
 
                     <div className="mt-8 sm:mt-10">
@@ -1308,7 +1353,7 @@ export default function ParentalMonitoringApp() {
 
                     <Button
                       onClick={() =>
-                        window.open("https://pay.mundpay.com/019827bf-dd10-703f-a9cf-64bad0eeb361?ref=", "_blank")
+                        window.open("https://pay.mundpay.com/0198c3e3-499d-7385-8865-25f594b421a7?ref=", "_blank")
                       }
                       className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 sm:py-4 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-4 sm:mb-6 overflow-hidden"
                     >
