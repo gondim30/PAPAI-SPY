@@ -6,7 +6,6 @@ import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   Search,
-  User,
   MessageCircle,
   Shield,
   AlertTriangle,
@@ -463,26 +462,38 @@ export default function ParentalMonitoringApp() {
       return generatedProfiles
     }
 
-    const suspiciousNames = [
-      "Usuário Desconhecido",
-      "Contato Não Identificado",
-      "Perfil Suspeito",
-      "Conta Anônima",
-      "Usuário Oculto",
+    const suspiciousContacts = [
+      {
+        name: "Site X-V encontrado",
+        icon: "🔞", // Adult content warning icon
+        color: "text-red-600",
+      },
+      {
+        name: "Chamada de vídeo em Discord",
+        icon: "💬", // Discord chat icon
+        color: "text-purple-600",
+      },
+      {
+        name: "Omegle conversas suspeitas e grupos",
+        icon: "👥", // Group chat icon
+        color: "text-orange-600",
+      },
     ]
 
     const profiles = []
 
     for (let i = 0; i < 3; i++) {
-      const name = suspiciousNames[Math.floor(Math.random() * suspiciousNames.length)]
+      const contact = suspiciousContacts[i]
       const age = Math.floor(Math.random() * 10) + 15 // 15-25 years old
 
       profiles.push({
-        name,
+        name: contact.name,
         age,
         lastSeen: `${Math.floor(Math.random() * 24)}h atrás`,
         description: "Atividade suspeita detectada",
-        image: `https://images.unsplash.com/photo-${1500000000000 + Math.floor(Math.random() * 100000000)}?w=400&h=400&fit=crop&crop=face`,
+        icon: contact.icon,
+        iconColor: contact.color,
+        image: null, // Remove generic images, use platform icons instead
       })
     }
 
@@ -842,9 +853,27 @@ export default function ParentalMonitoringApp() {
                       <h2 className="text-2xl sm:text-3xl font-bold text-blue-600 mb-3 sm:mb-4">
                         Informações do Seu Filho
                       </h2>
-                      <p className="text-gray-600 text-sm sm:text-base">
+                      <p className="text-gray-600 text-sm sm:text-base mb-4">
                         Preencha os detalhes para começar o monitoramento das atividades nas redes sociais
                       </p>
+                      <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+                        <div className="flex items-center justify-center gap-2 mb-2">
+                          <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                            />
+                          </svg>
+                          <span className="text-green-800 font-semibold text-sm">🔒 DADOS 100% SEGUROS</span>
+                        </div>
+                        <p className="text-green-700 text-xs sm:text-sm leading-relaxed">
+                          <strong>Seus dados e segurança são totalmente protegidos.</strong> Todas as informações são
+                          criptografadas com tecnologia militar e não saem do nosso sistema seguro. Garantimos total
+                          privacidade e confidencialidade das informações do seu filho.
+                        </p>
+                      </div>
                     </div>
 
                     <div className="mb-4 sm:mb-6">
@@ -1068,6 +1097,32 @@ export default function ParentalMonitoringApp() {
                               color: "text-blue-500",
                               description: "Rede social",
                             },
+                            { name: "X-V████", icon: Users, color: "text-red-600", description: "Conteúdo adulto" },
+                            {
+                              name: "Snapchat",
+                              icon: MessageCircle,
+                              color: "text-yellow-500",
+                              description: "Mensagens temporárias",
+                            },
+                            {
+                              name: "Discord",
+                              icon: MessageSquare,
+                              color: "text-indigo-600",
+                              description: "Servidores privados",
+                            },
+                            { name: "TikTok", icon: Users, color: "text-black", description: "Vídeos curtos" },
+                            {
+                              name: "Reddit",
+                              icon: MessageSquare,
+                              color: "text-orange-500",
+                              description: "Fóruns anônimos",
+                            },
+                            {
+                              name: "Twitch",
+                              icon: Users,
+                              color: "text-purple-500",
+                              description: "Transmissões ao vivo",
+                            },
                           ].map((platform) => (
                             <button
                               key={platform.name}
@@ -1243,6 +1298,32 @@ export default function ParentalMonitoringApp() {
                                 description: "Chats secretos",
                               },
                               { name: "Facebook", icon: Users, color: "text-blue-500", description: "Rede social" },
+                              { name: "X-V████", icon: Users, color: "text-red-600", description: "Conteúdo adulto" },
+                              {
+                                name: "Snapchat",
+                                icon: MessageCircle,
+                                color: "text-yellow-500",
+                                description: "Mensagens temporárias",
+                              },
+                              {
+                                name: "Discord",
+                                icon: MessageSquare,
+                                color: "text-indigo-600",
+                                description: "Servidores privados",
+                              },
+                              { name: "TikTok", icon: Users, color: "text-black", description: "Vídeos curtos" },
+                              {
+                                name: "Reddit",
+                                icon: MessageSquare,
+                                color: "text-orange-500",
+                                description: "Fóruns anônimos",
+                              },
+                              {
+                                name: "Twitch",
+                                icon: Users,
+                                color: "text-purple-500",
+                                description: "Transmissões ao vivo",
+                              },
                             ].find((p) => p.name === platformName)
 
                           if (!platform) return null
@@ -1265,9 +1346,11 @@ export default function ParentalMonitoringApp() {
                         <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
                         <div>
                           <h4 className="font-bold text-blue-600 text-sm sm:text-base mb-1 sm:mb-2">
-                            Última Atividade: 18 horas atrás
+                            Última Atividade: 3 horas atrás
                           </h4>
-                          <p className="text-xs sm:text-sm text-gray-600">Apesar de afirmar que 'deletou tudo'...</p>
+                          <p className="text-xs sm:text-sm text-gray-600">
+                            Detectamos atividade em Google aba anônima recentemente...
+                          </p>
                         </div>
                       </div>
 
@@ -1313,7 +1396,7 @@ export default function ParentalMonitoringApp() {
                         </li>
                         <li className="flex items-center gap-2 sm:gap-3">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0" />
-                          Conversas no Discord
+                          Conversas e tela de todas as plataformas acionadas pelos pais
                         </li>
                         <li className="flex items-center gap-2 sm:gap-3">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0" />
@@ -1321,7 +1404,7 @@ export default function ParentalMonitoringApp() {
                         </li>
                         <li className="flex items-center gap-2 sm:gap-3">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0" />
-                          Cronograma de todas as atividades (você ficará chocado)
+                          Cronograma de todas as atividades para melhor proteção do seu filho
                         </li>
                       </ul>
                     </div>
@@ -1474,8 +1557,10 @@ export default function ParentalMonitoringApp() {
                     <div className="space-y-3 sm:space-y-4">
                       {generateSuspiciousContacts().map((profile, index) => (
                         <div key={index} className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
-                          <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-pink-200 to-purple-200 rounded-xl flex items-center justify-center">
-                            <User className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
+                          <div
+                            className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center text-2xl ${profile.iconColor}`}
+                          >
+                            {profile.icon}
                           </div>
                           <div className="flex-1">
                             <h4 className="font-bold text-[#333333] text-sm sm:text-base">{profile.name}</h4>
