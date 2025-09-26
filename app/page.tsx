@@ -31,24 +31,24 @@ import { useGeolocation } from "@/hooks/useGeolocation"
 type AppStep = "landing" | "form" | "verification" | "preliminary" | "generating" | "result" | "offer"
 
 const monitoringPlatforms = [
-  { name: "WhatsApp", icon: MessageCircle, color: "text-green-600", description: "Messages & contacts" },
-  { name: "Discord", icon: Users, color: "text-indigo-600", description: "Servers & conversations" },
-  { name: "TikTok", icon: Music, color: "text-pink-600", description: "Videos & interactions" },
-  { name: "Roblox", icon: Gamepad2, color: "text-blue-600", description: "Games & chat" },
-  { name: "Instagram", icon: Instagram, color: "text-purple-600", description: "Posts & stories" },
-  { name: "YouTube", icon: Youtube, color: "text-red-600", description: "Watched videos" },
+  { name: "WhatsApp", icon: MessageCircle, color: "text-green-600", description: "Mensagens e contatos" },
+  { name: "Discord", icon: Users, color: "text-indigo-600", description: "Servidores e conversas" },
+  { name: "TikTok", icon: Music, color: "text-pink-600", description: "Vídeos e interações" },
+  { name: "Roblox", icon: Gamepad2, color: "text-blue-600", description: "Jogos e chat" },
+  { name: "Instagram", icon: Instagram, color: "text-purple-600", description: "Posts e stories" },
+  { name: "YouTube", icon: Youtube, color: "text-red-600", description: "Vídeos assistidos" },
 ]
 
 const SalesProofPopup = ({ show, onClose }: { show: boolean; onClose: () => void }) => {
   const [currentMessage, setCurrentMessage] = useState("")
 
   const salesMessages = [
-    "✅ Maria from São Paulo discovered suspicious activities 12 minutes ago",
-    "✅ John recently viewed his child's conversations",
-    "✅ Ana just accessed confidential report",
-    "✅ Carlos completed a full analysis right now",
-    "✅ Fernanda obtained access to the report moments ago",
-    "✅ Roberto performed complete verification now",
+    "✅ Maria de São Paulo descobriu atividades suspeitas há 12 minutos",
+    "✅ João visualizou recentemente as conversas do filho",
+    "✅ Ana acabou de acessar relatório confidencial",
+    "✅ Carlos completou análise completa agora mesmo",
+    "✅ Fernanda obteve acesso ao relatório há poucos momentos",
+    "✅ Roberto realizou verificação completa agora",
   ]
 
   useEffect(() => {
@@ -87,30 +87,6 @@ const SalesProofPopup = ({ show, onClose }: { show: boolean; onClose: () => void
   )
 }
 
-// const MapComponent = ({ latitude, longitude }: { latitude: number; longitude: number }) => {
-//   return (
-//     <div className="w-full h-64 bg-gray-900 rounded-lg border border-gray-700 relative overflow-hidden">
-//       <div className="absolute inset-0 flex items-center justify-center">
-//         <div className="text-center">
-//           <div className="w-4 h-4 bg-red-500 rounded-full mx-auto mb-2 animate-pulse"></div>
-//           <p className="text-white text-sm font-medium">Localização Detectada</p>
-//           <p className="text-gray-400 text-xs">Lat: {latitude.toFixed(6)}</p>
-//           <p className="text-gray-400 text-xs">Lng: {longitude.toFixed(6)}</p>
-//         </div>
-//       </div>
-//       <div className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">AO VIVO</div>
-//       {/* Simulação de mapa com grid */}
-//       <div className="absolute inset-0 opacity-20">
-//         <div className="grid grid-cols-8 grid-rows-8 h-full w-full">
-//           {Array.from({ length: 64 }).map((_, i) => (
-//             <div key={i} className="border border-gray-600"></div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
-
 export default function ParentalMonitoringApp() {
   const [currentStep, setCurrentStep] = useState<AppStep>("landing")
   const [childName, setChildName] = useState("")
@@ -122,7 +98,7 @@ export default function ParentalMonitoringApp() {
   const [isPhotoPrivate, setIsPhotoPrivate] = useState(false)
   const [showCountryDropdown, setShowCountryDropdown] = useState(false)
   const [selectedCountry, setSelectedCountry] = useState({
-    name: "Brazil",
+    name: "Brasil",
     code: "+55",
     flag: "🇧🇷",
     placeholder: "11 99999-9999",
@@ -132,7 +108,7 @@ export default function ParentalMonitoringApp() {
   const [timeLeft, setTimeLeft] = useState(15 * 60)
   const [currentSlide, setCurrentSlide] = useState(0)
   const [verificationProgress, setVerificationProgress] = useState(0)
-  const [verificationMessage, setVerificationMessage] = useState("Starting analysis...")
+  const [verificationMessage, setVerificationMessage] = useState("Iniciando análise...")
   const [generatingProgress, setGeneratingProgress] = useState(0)
   const [generatingMessage, setGeneratingMessage] = useState("Analisando atividades nas redes sociais...")
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -148,12 +124,12 @@ export default function ParentalMonitoringApp() {
   const [photoError, setPhotoError] = useState("")
 
   const countries = [
-    { code: "+55", name: "Brazil", flag: "🇧🇷", placeholder: "(11) 99999-9999" },
-    { code: "+1", name: "United States", flag: "🇺🇸", placeholder: "(555) 123-4567" },
-    { code: "+1", name: "Canada", flag: "🇨🇦", placeholder: "(555) 123-4567" },
-    { code: "+44", name: "United Kingdom", flag: "🇬🇧", placeholder: "7911 123456" },
-    { code: "+33", name: "France", flag: "🇫🇷", placeholder: "6 12 34 56 78" },
-    { code: "+49", name: "Germany", flag: "🇩🇪", placeholder: "1512 3456789" },
+    { code: "+55", name: "Brasil", flag: "🇧🇷", placeholder: "(11) 99999-9999" },
+    { code: "+1", name: "Estados Unidos", flag: "🇺🇸", placeholder: "(555) 123-4567" },
+    { code: "+1", name: "Canadá", flag: "🇨🇦", placeholder: "(555) 123-4567" },
+    { code: "+44", name: "Reino Unido", flag: "🇬🇧", placeholder: "7911 123456" },
+    { code: "+33", name: "França", flag: "🇫🇷", placeholder: "6 12 34 56 78" },
+    { code: "+49", name: "Alemanha", flag: "🇩🇪", placeholder: "1512 3456789" },
   ]
 
   const filteredCountries = countries.filter(
@@ -203,32 +179,32 @@ export default function ParentalMonitoringApp() {
   const getProgressSteps = () => [
     {
       id: "form",
-      fullLabel: "Child Information",
+      fullLabel: "Informações da Criança",
       mobileLabel: "Info",
       completed: ["verification", "preliminary", "generating", "result", "offer"].includes(currentStep),
     },
     {
       id: "verification",
-      fullLabel: "WhatsApp Verification",
-      mobileLabel: "Verify",
+      fullLabel: "Verificação WhatsApp",
+      mobileLabel: "Verificar",
       completed: ["preliminary", "generating", "result", "offer"].includes(currentStep),
     },
     {
       id: "preliminary",
-      fullLabel: "Preliminary Scan",
-      mobileLabel: "Scan",
+      fullLabel: "Escaneamento Preliminar",
+      mobileLabel: "Escanear",
       completed: ["generating", "result", "offer"].includes(currentStep),
     },
     {
       id: "generating",
-      fullLabel: "Generating Report",
-      mobileLabel: "Report",
+      fullLabel: "Gerando Relatório",
+      mobileLabel: "Relatório",
       completed: ["result", "offer"].includes(currentStep),
     },
     {
       id: "result",
-      fullLabel: "Results Ready",
-      mobileLabel: "Results",
+      fullLabel: "Resultados Prontos",
+      mobileLabel: "Resultados",
       completed: ["offer"].includes(currentStep),
     },
   ]
@@ -247,14 +223,14 @@ export default function ParentalMonitoringApp() {
   useEffect(() => {
     if (currentStep === "verification") {
       const messages = [
-        { progress: 0, message: "Checking social media activities..." },
-        { progress: 15, message: "Analyzing facial recognition data..." },
-        { progress: 30, message: "Checking recent login patterns..." },
-        { progress: 45, message: "Scanning WhatsApp, Discord and other platforms..." },
-        { progress: 60, message: "Detecting suspicious location activities..." },
-        { progress: 75, message: "Compiling confidential evidence..." },
-        { progress: 90, message: "Almost ready - finalizing your report..." },
-        { progress: 100, message: "Investigation completed successfully!" },
+        { progress: 0, message: "Verificando atividades nas redes sociais..." },
+        { progress: 15, message: "Analisando dados de reconhecimento facial..." },
+        { progress: 30, message: "Verificando padrões de login recentes..." },
+        { progress: 45, message: "Escaneando WhatsApp, Discord e outras plataformas..." },
+        { progress: 60, message: "Detectando atividades suspeitas de localização..." },
+        { progress: 75, message: "Compilando evidências confidenciais..." },
+        { progress: 90, message: "Quase pronto - finalizando seu relatório..." },
+        { progress: 100, message: "Investigação concluída com sucesso!" },
       ]
 
       const interval = setInterval(() => {
@@ -281,19 +257,19 @@ export default function ParentalMonitoringApp() {
   useEffect(() => {
     if (currentStep === "generating") {
       const baseMessages = [
-        { progress: 0, message: "Analyzing profile photos..." },
-        { progress: 20, message: "Processing message history..." },
-        { progress: 40, message: "Checking accessed locations..." },
-        { progress: 60, message: "Compiling activity data..." },
-        { progress: 80, message: "Encrypting sensitive information..." },
-        { progress: 95, message: "Finalizing complete report..." },
-        { progress: 100, message: "Report generated successfully!" },
+        { progress: 0, message: "Analisando fotos do perfil..." },
+        { progress: 20, message: "Processando histórico de mensagens..." },
+        { progress: 40, message: "Verificando localizações acessadas..." },
+        { progress: 60, message: "Compilando dados de atividade..." },
+        { progress: 80, message: "Criptografando informações sensíveis..." },
+        { progress: 95, message: "Finalizando relatório completo..." },
+        { progress: 100, message: "Relatório gerado com sucesso!" },
       ]
 
       const messages = city
         ? [
             ...baseMessages.slice(0, 2),
-            { progress: 30, message: `Analyzing recent activities in the ${city} region...` },
+            { progress: 30, message: `Analisando atividades recentes na região de ${city}...` },
             ...baseMessages.slice(2),
           ]
         : baseMessages
@@ -367,7 +343,7 @@ export default function ParentalMonitoringApp() {
           "https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=",
         )
         setIsPhotoPrivate(true)
-        setPhotoError("Could not load photo")
+        setPhotoError("Não foi possível carregar a foto")
         return
       }
 
@@ -488,11 +464,11 @@ export default function ParentalMonitoringApp() {
     }
 
     const suspiciousNames = [
-      "Unknown User",
-      "Unidentified Contact",
-      "Suspicious Profile",
-      "Anonymous Account",
-      "Hidden User",
+      "Usuário Desconhecido",
+      "Contato Não Identificado",
+      "Perfil Suspeito",
+      "Conta Anônima",
+      "Usuário Oculto",
     ]
 
     const profiles = []
@@ -504,7 +480,7 @@ export default function ParentalMonitoringApp() {
       profiles.push({
         name,
         age,
-        lastSeen: `${Math.floor(Math.random() * 24)}h ago`,
+        lastSeen: `${Math.floor(Math.random() * 24)}h atrás`,
         description: "Atividade suspeita detectada",
         image: `https://images.unsplash.com/photo-${1500000000000 + Math.floor(Math.random() * 100000000)}?w=400&h=400&fit=crop&crop=face`,
       })
@@ -606,122 +582,251 @@ export default function ParentalMonitoringApp() {
 
       <div className={currentStep !== "landing" ? "pt-16 sm:pt-20" : ""}>
         <AnimatePresence mode="wait">
-          {/* Landing Page - Mobile Optimized */}
+          {/* Landing Page - Professional Design */}
           {currentStep === "landing" && (
             <motion.div
               key="landing"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="container mx-auto px-4 py-8 sm:py-12"
+              className="gradient-hero min-h-screen"
             >
-              <div className="max-w-4xl mx-auto text-center">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-center mb-8 sm:mb-12"
-                >
-                  <div className="flex items-center justify-center gap-3 mb-4 sm:mb-6">
-                    <div className="bg-blue-600 p-2 sm:p-3 rounded-full">
-                      <svg
-                        className="w-6 h-6 sm:w-8 sm:h-8 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                        />
-                      </svg>
+              <nav className="nav-professional fixed top-0 left-0 right-0 z-40">
+                <div className="container-professional">
+                  <div className="flex items-center justify-between py-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                        <Search className="w-5 h-5 text-black" />
+                      </div>
+                      <span className="text-xl font-bold text-white">FamilySafe</span>
                     </div>
+                    <div className="hidden md:flex items-center gap-8">
+                      <a href="#features" className="text-gray-300 hover:text-white transition-colors">
+                        Recursos
+                      </a>
+                      <a href="#security" className="text-gray-300 hover:text-white transition-colors">
+                        Segurança
+                      </a>
+                      <a href="#pricing" className="text-gray-300 hover:text-white transition-colors">
+                        Preços
+                      </a>
+                    </div>
+                    <Button className="btn-primary">Começar Agora</Button>
                   </div>
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-blue-600 mb-4 sm:mb-6 leading-tight">
-                    Monitor Your Child's Activities
-                    <span className="block text-blue-500 mt-2 font-black">On Social Media</span>
-                  </h1>
-                  <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                    Discover conversations on <strong>Roblox</strong>, images exchanged via chat, suspicious{" "}
-                    <strong>WhatsApp groups</strong>, activities on <strong>Discord</strong>, <strong>TikTok</strong>{" "}
-                    and other platforms. Protect them discreetly.
-                  </p>
-                  <p className="text-base sm:text-lg text-blue-400 font-semibold mt-4 uppercase tracking-wide">
-                    WITH OUR FAMILY WATCH – SURVEILLANCE FOR PARENTS
-                  </p>
-                </motion.div>
+                </div>
+              </nav>
 
-                <motion.div
-                  initial={{ y: 30, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-8 sm:mb-12"
-                >
-                  {monitoringPlatforms.map((platform, index) => (
-                    <Card key={platform.name} className="p-4 hover:shadow-lg transition-all duration-300">
-                      <CardContent className="p-0 text-center">
-                        <platform.icon className={`w-8 h-8 mx-auto mb-2 ${platform.color}`} />
-                        <h3 className="font-semibold text-sm text-gray-900">{platform.name}</h3>
-                        <p className="text-xs text-gray-600 mt-1">{platform.description}</p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </motion.div>
-
-                <motion.div
-                  initial={{ y: 30, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="grid sm:grid-cols-3 gap-6 mb-8 sm:mb-12"
-                >
-                  <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 bg-gray-900 border-gray-700">
-                    <MessageSquare className="w-12 h-12 text-green-400 mx-auto mb-4" />
-                    <h3 className="font-bold text-lg text-white mb-2">Roblox Conversations</h3>
-                    <p className="text-gray-300">Monitor all conversations and interactions on Roblox in real-time</p>
-                  </Card>
-                  <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 bg-gray-900 border-gray-700">
-                    <ImageIcon className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                    <h3 className="font-bold text-lg text-white mb-2">Exchanged Images</h3>
-                    <p className="text-gray-300">See all images sent and received in private chats</p>
-                  </Card>
-                  <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 bg-gray-900 border-gray-700">
-                    <Users className="w-12 h-12 text-red-400 mx-auto mb-4" />
-                    <h3 className="font-bold text-lg text-white mb-2">Suspicious Groups</h3>
-                    <p className="text-gray-300">Identify WhatsApp groups with inappropriate activities</p>
-                  </Card>
-                  <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 bg-gray-900 border-gray-700">
-                    <Eye className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-                    <h3 className="font-bold text-lg text-white mb-2">Invisible Monitoring</h3>
-                    <p className="text-gray-300">Your child won't know they're being monitored</p>
-                  </Card>
-                  <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 bg-gray-900 border-gray-700">
-                    <AlertTriangle className="w-12 h-12 text-orange-400 mx-auto mb-4" />
-                    <h3 className="font-bold text-lg text-white mb-2">Danger Alerts</h3>
-                    <p className="text-gray-300">Receive notifications about risky behaviors immediately</p>
-                  </Card>
-                  <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 bg-gray-900 border-gray-700">
-                    <Shield className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
-                    <h3 className="font-bold text-lg text-white mb-2">24/7 Protection</h3>
-                    <p className="text-gray-300">Continuous monitoring across all digital platforms</p>
-                  </Card>
-                </motion.div>
-
-                <motion.div initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.4 }}>
-                  <Button
-                    onClick={() => setCurrentStep("form")}
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              <div className="section-padding pt-32">
+                <div className="container-professional text-center">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="max-w-4xl mx-auto"
                   >
-                    Start Monitoring Now
-                  </Button>
-                  <p className="text-sm text-gray-500 mt-4">✓ 100% Safe and Confidential ✓ Results in Minutes</p>
-                </motion.div>
+                    <div className="mb-8">
+                      <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+                        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span className="text-sm text-white/90 font-medium">Monitoramento em Tempo Real</span>
+                      </div>
+
+                      <h1 className="text-white mb-6">
+                        Proteja Seus Filhos no
+                        <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                          Mundo Digital
+                        </span>
+                      </h1>
+
+                      <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+                        Monitore discretamente as atividades dos seus filhos em{" "}
+                        <strong className="text-white">Roblox</strong>,<strong className="text-white"> WhatsApp</strong>
+                        , <strong className="text-white">Discord</strong>,
+                        <strong className="text-white"> TikTok</strong> e outras plataformas. Proteja-os de predadores e
+                        conteúdo inadequado.
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                      <Button onClick={() => setCurrentStep("form")} className="btn-primary text-lg px-8 py-4">
+                        Começar Monitoramento
+                        <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M13 7l5 5m0 0l-5 5m5-5H6"
+                          />
+                        </svg>
+                      </Button>
+                    </div>
+
+                    <div className="flex items-center justify-center gap-8 text-sm text-gray-400">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-400" />
+                        <span>100% Seguro</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Shield className="w-4 h-4 text-blue-400" />
+                        <span>Criptografado</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Eye className="w-4 h-4 text-purple-400" />
+                        <span>Invisível</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+
+              <div className="section-padding" id="features">
+                <div className="container-professional">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="text-center mb-16"
+                  >
+                    <h2 className="text-white mb-4">Plataformas Monitoradas</h2>
+                    <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                      Cobertura completa das principais redes sociais e aplicativos utilizados por crianças e
+                      adolescentes
+                    </p>
+                  </motion.div>
+
+                  <div className="grid-professional grid-3-cols">
+                    {monitoringPlatforms.map((platform, index) => (
+                      <motion.div
+                        key={platform.name}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6 + index * 0.1 }}
+                        className="card-professional group hover:scale-105 transition-all duration-300"
+                      >
+                        <div className="flex items-center gap-4 mb-4">
+                          <div
+                            className={`w-12 h-12 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center group-hover:scale-110 transition-transform`}
+                          >
+                            <platform.icon className={`w-6 h-6 ${platform.color}`} />
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-semibold text-white">{platform.name}</h3>
+                            <p className="text-sm text-gray-400">{platform.description}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center text-sm text-gray-500">
+                          <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                          Monitoramento Ativo
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="section-padding bg-gradient-to-b from-transparent to-gray-950/50" id="security">
+                <div className="container-professional">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7 }}
+                    className="text-center mb-16"
+                  >
+                    <h2 className="text-white mb-4">Recursos Avançados</h2>
+                    <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                      Tecnologia de ponta para proteção completa dos seus filhos no ambiente digital
+                    </p>
+                  </motion.div>
+
+                  <div className="grid-professional grid-2-cols lg:grid-cols-3">
+                    {[
+                      {
+                        icon: MessageSquare,
+                        title: "Conversas do Roblox",
+                        description: "Monitore todas as conversas e interações no Roblox em tempo real",
+                        color: "text-green-400",
+                      },
+                      {
+                        icon: ImageIcon,
+                        title: "Imagens Trocadas",
+                        description: "Veja todas as imagens enviadas e recebidas em chats privados",
+                        color: "text-purple-400",
+                      },
+                      {
+                        icon: Users,
+                        title: "Grupos Suspeitos",
+                        description: "Identifique grupos do WhatsApp com atividades inadequadas",
+                        color: "text-red-400",
+                      },
+                      {
+                        icon: Eye,
+                        title: "Monitoramento Invisível",
+                        description: "Seu filho não saberá que está sendo monitorado",
+                        color: "text-blue-400",
+                      },
+                      {
+                        icon: AlertTriangle,
+                        title: "Alertas de Perigo",
+                        description: "Receba notificações sobre comportamentos de risco imediatamente",
+                        color: "text-orange-400",
+                      },
+                      {
+                        icon: Shield,
+                        title: "Proteção 24/7",
+                        description: "Monitoramento contínuo em todas as plataformas digitais",
+                        color: "text-cyan-400",
+                      },
+                    ].map((feature, index) => (
+                      <motion.div
+                        key={feature.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8 + index * 0.1 }}
+                        className="card-professional group"
+                      >
+                        <div className="flex flex-col items-center text-center">
+                          <div
+                            className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
+                          >
+                            <feature.icon className={`w-8 h-8 ${feature.color}`} />
+                          </div>
+                          <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
+                          <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="section-padding">
+                <div className="container-professional">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 }}
+                    className="text-center"
+                  >
+                    <div className="max-w-3xl mx-auto card-professional bg-gradient-to-br from-gray-900/50 to-gray-800/50 backdrop-blur-sm border-gray-700">
+                      <h2 className="text-white mb-6">Pronto para Proteger Seus Filhos?</h2>
+                      <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Junte-se a milhares de pais que já protegem seus filhos com o FamilySafe. Comece o monitoramento
+                        em menos de 2 minutos.
+                      </p>
+                      <Button onClick={() => setCurrentStep("form")} className="btn-primary text-lg px-12 py-4 mb-6">
+                        Começar Monitoramento Agora
+                      </Button>
+                      <div className="flex items-center justify-center gap-6 text-sm text-gray-400">
+                        <span>✓ Sem instalação de apps</span>
+                        <span>✓ 100% Confidencial</span>
+                        <span>✓ Resultados em minutos</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
           )}
 
-          {/* Form Step - Mobile Optimized */}
           {currentStep === "form" && (
             <motion.div
               key="form"
@@ -735,16 +840,16 @@ export default function ParentalMonitoringApp() {
                   <CardContent className="p-0">
                     <div className="text-center mb-6 sm:mb-8">
                       <h2 className="text-2xl sm:text-3xl font-bold text-blue-600 mb-3 sm:mb-4">
-                        Your Child's Information
+                        Informações do Seu Filho
                       </h2>
                       <p className="text-gray-600 text-sm sm:text-base">
-                        Fill in the details to start monitoring social media activities
+                        Preencha os detalhes para começar o monitoramento das atividades nas redes sociais
                       </p>
                     </div>
 
                     <div className="mb-4 sm:mb-6">
                       <label className="block text-sm sm:text-base font-semibold text-blue-600 mb-2 sm:mb-3">
-                        Upload Photo for Platform Verification
+                        Enviar Foto para Verificação nas Plataformas
                       </label>
                       <div className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-blue-400 transition-colors">
                         <input
@@ -758,14 +863,14 @@ export default function ParentalMonitoringApp() {
                           <div className="flex flex-col items-center gap-3">
                             <img
                               src={uploadedPhoto || "/placeholder.svg"}
-                              alt="Uploaded photo"
+                              alt="Foto enviada"
                               className="w-24 h-24 object-cover rounded-lg border-2 border-blue-200"
                             />
                             <label
                               htmlFor="photo-upload"
                               className="cursor-pointer text-sm text-blue-600 hover:text-blue-700"
                             >
-                              Change Photo
+                              Trocar Foto
                             </label>
                           </div>
                         ) : (
@@ -785,8 +890,10 @@ export default function ParentalMonitoringApp() {
                                 />
                               </svg>
                             </div>
-                            <span className="text-sm text-gray-600">Click to upload your child's photo</span>
-                            <span className="text-xs text-gray-400">Used to verify identity across platforms</span>
+                            <span className="text-sm text-gray-600">Clique para enviar a foto do seu filho</span>
+                            <span className="text-xs text-gray-400">
+                              Usado para verificar identidade nas plataformas
+                            </span>
                           </label>
                         )}
                       </div>
@@ -795,11 +902,11 @@ export default function ParentalMonitoringApp() {
                     <div className="space-y-6">
                       <div>
                         <label className="block text-sm sm:text-base font-semibold text-blue-600 mb-2 sm:mb-3">
-                          Child/Teen Name
+                          Nome da Criança/Adolescente
                         </label>
                         <Input
                           type="text"
-                          placeholder="Enter your child's name"
+                          placeholder="Digite o nome do seu filho"
                           value={childName}
                           onChange={(e) => setChildName(e.target.value)}
                           className="py-2 sm:py-3 px-3 sm:px-4 text-sm sm:text-base rounded-xl border-gray-300 focus:border-blue-500 focus:ring-blue-500"
@@ -808,11 +915,11 @@ export default function ParentalMonitoringApp() {
 
                       <div>
                         <label className="block text-sm sm:text-base font-semibold text-blue-600 mb-2 sm:mb-3">
-                          Age
+                          Idade
                         </label>
                         <Input
                           type="number"
-                          placeholder="Your child's age"
+                          placeholder="Idade do seu filho"
                           value={childAge}
                           onChange={(e) => setChildAge(e.target.value)}
                           className="py-2 sm:py-3 px-3 sm:px-4 text-sm sm:text-base rounded-xl border-gray-300 focus:border-blue-500 focus:ring-blue-500"
@@ -823,7 +930,7 @@ export default function ParentalMonitoringApp() {
 
                       <div>
                         <label className="block text-sm sm:text-base font-semibold text-blue-600 mb-2 sm:mb-3">
-                          Your child's WhatsApp number
+                          Número do WhatsApp do seu filho
                         </label>
                         <div className="flex gap-2 sm:gap-3">
                           <div className="relative">
@@ -853,7 +960,7 @@ export default function ParentalMonitoringApp() {
                                     onClick={() => {
                                       setSelectedCountry(country)
                                       setShowCountryDropdown(false)
-                                      const currentNumber = phoneNumber.replace(/^\+\d+\s*/, "")
+                                      const currentNumber = phoneNumber.replace(/^\\+\\d+\\s*/, "")
                                       setPhoneNumber(country.code + " " + currentNumber)
                                     }}
                                     className="w-full px-3 py-2 text-left hover:bg-gray-700 flex items-center gap-3 text-sm text-gray-300"
@@ -875,7 +982,7 @@ export default function ParentalMonitoringApp() {
                           />
                         </div>
                         <p className="text-xs sm:text-sm text-gray-400 mt-2 font-medium">
-                          Used to identify your child's profile and monitor suspicious WhatsApp activities.
+                          Usado para identificar o perfil do seu filho e monitorar atividades suspeitas no WhatsApp.
                         </p>
 
                         {(profilePhoto || isLoadingPhoto) && (
@@ -884,22 +991,20 @@ export default function ParentalMonitoringApp() {
                               {isLoadingPhoto ? (
                                 <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-700 rounded-xl animate-pulse" />
                               ) : (
-                                <img
-                                  src={profilePhoto || "/placeholder.svg"}
-                                  alt="WhatsApp Profile"
-                                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl object-cover border-2 border-gray-600"
-                                />
+                                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-green-500 rounded-xl flex items-center justify-center">
+                                  <CheckCircle className="w-8 h-8 text-white" />
+                                </div>
                               )}
                               <div className="flex-1">
                                 <p className="font-semibold text-white text-sm sm:text-base">
-                                  WhatsApp Profile Identified
+                                  Perfil do WhatsApp Identificado
                                 </p>
                                 <p className="text-xs sm:text-sm text-gray-400 mt-1">
-                                  Profile photo found - monitoring active
+                                  Perfil conectado - monitoramento ativo
                                 </p>
                                 {isPhotoPrivate && (
                                   <p className="text-xs text-yellow-400 mt-1 font-medium">
-                                    ⚠️ Profile with privacy enabled - may indicate secretive behavior
+                                    ⚠️ Perfil com privacidade ativada - pode indicar comportamento secreto
                                   </p>
                                 )}
                               </div>
@@ -910,10 +1015,60 @@ export default function ParentalMonitoringApp() {
 
                       <div>
                         <label className="block text-sm sm:text-base font-semibold text-blue-600 mb-2 sm:mb-3">
-                          Platforms to Monitor
+                          Plataformas para Monitorar
                         </label>
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                          {monitoringPlatforms.map((platform) => (
+                          {[
+                            {
+                              name: "WhatsApp",
+                              icon: MessageCircle,
+                              color: "text-green-600",
+                              description: "Mensagens e contatos",
+                            },
+                            { name: "OnlyFans", icon: Users, color: "text-pink-600", description: "Conteúdo adulto" },
+                            {
+                              name: "Omegle",
+                              icon: MessageSquare,
+                              color: "text-blue-600",
+                              description: "Chat anônimo",
+                            },
+                            {
+                              name: "Chatroulette",
+                              icon: Users,
+                              color: "text-purple-600",
+                              description: "Videochamadas aleatórias",
+                            },
+                            {
+                              name: "Kik",
+                              icon: MessageCircle,
+                              color: "text-orange-600",
+                              description: "Mensagens privadas",
+                            },
+                            {
+                              name: "Telegram",
+                              icon: MessageSquare,
+                              color: "text-cyan-600",
+                              description: "Chats secretos",
+                            },
+                            {
+                              name: "Roblox",
+                              icon: Gamepad2,
+                              color: "text-red-600",
+                              description: "Jogos e chat",
+                            },
+                            {
+                              name: "Instagram",
+                              icon: Instagram,
+                              color: "text-purple-500",
+                              description: "Posts e stories",
+                            },
+                            {
+                              name: "Facebook",
+                              icon: Users,
+                              color: "text-blue-500",
+                              description: "Rede social",
+                            },
+                          ].map((platform) => (
                             <button
                               key={platform.name}
                               type="button"
@@ -928,13 +1083,13 @@ export default function ParentalMonitoringApp() {
                               <platform.icon className={`w-6 h-6 mx-auto mb-2 ${platform.color}`} />
                               <p className="text-sm font-medium text-gray-900">{platform.name}</p>
                               {platform.name === "WhatsApp" && (
-                                <p className="text-xs text-blue-600 mt-1">Always included</p>
+                                <p className="text-xs text-blue-600 mt-1">Sempre incluído</p>
                               )}
                             </button>
                           ))}
                         </div>
                         <p className="text-xs sm:text-sm text-gray-500 mt-2">
-                          Select the platforms you want to monitor. WhatsApp is always included.
+                          Selecione as plataformas que deseja monitorar. WhatsApp está sempre incluído.
                         </p>
                       </div>
                     </div>
@@ -948,16 +1103,16 @@ export default function ParentalMonitoringApp() {
                         {isSubmittingEmail ? (
                           <div className="flex items-center justify-center gap-2">
                             <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                            Starting Monitoring...
+                            Iniciando Monitoramento...
                           </div>
                         ) : (
-                          "Start Complete Tracking"
+                          "Iniciar Rastreamento Completo"
                         )}
                       </Button>
 
                       {!canVerify && (
                         <p className="text-center text-sm text-red-500 mt-3 font-medium">
-                          Fill in all fields (name, age and number) to continue
+                          Preencha todos os campos (nome, idade e número) para continuar
                         </p>
                       )}
                     </div>
@@ -983,7 +1138,7 @@ export default function ParentalMonitoringApp() {
                     </div>
 
                     <h2 className="text-xl sm:text-2xl font-bold text-[#333333] mb-4 sm:mb-6">
-                      🔍 Scanning All Platforms...
+                      🔍 Escaneando Todas as Plataformas...
                     </h2>
 
                     <div className="mb-6 sm:mb-8">
@@ -995,25 +1150,27 @@ export default function ParentalMonitoringApp() {
                       <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
                         <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full animate-pulse" />
                         <span className="text-xs sm:text-sm text-gray-700 font-medium">
-                          WhatsApp, Discord, TikTok scanning...
+                          WhatsApp, Discord, TikTok escaneando...
                         </span>
                       </div>
                       <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
                         <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-500 rounded-full animate-pulse" />
                         <span className="text-xs sm:text-sm text-gray-700 font-medium">
-                          Facial recognition processing...
+                          Processamento de reconhecimento facial...
                         </span>
                       </div>
                       <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
                         <div className="w-2 h-2 sm:w-3 sm:h-3 bg-purple-500 rounded-full animate-pulse" />
-                        <span className="text-xs sm:text-sm text-gray-700 font-medium">Location data analysis...</span>
+                        <span className="text-xs sm:text-sm text-gray-700 font-medium">
+                          Análise de dados de localização...
+                        </span>
                       </div>
                     </div>
 
                     <div className="text-center">
                       <p className="text-xs sm:text-sm text-gray-500 flex items-center justify-center gap-2 font-medium">
                         <Lock className="w-4 h-4" />
-                        Secure and encrypted connection - No trace left
+                        Conexão segura e criptografada - Nenhum rastro deixado
                       </p>
                     </div>
                   </CardContent>
@@ -1037,30 +1194,92 @@ export default function ParentalMonitoringApp() {
                       <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg animate-pulse">
                         <AlertTriangle className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                       </div>
-                      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#333333] mb-3 sm:mb-4">
-                        We Found Suspicious Activities...
+                      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 mb-3 sm:mb-4">
+                        Encontramos Atividades Suspeitas...
                       </h2>
                     </div>
 
                     <div className="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
                       <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                         <AlertTriangle className="w-6 h-6 sm:w-8 sm:h-8 text-red-500 flex-shrink-0" />
-                        <h3 className="text-lg sm:text-xl font-bold text-red-700">SUSPICIOUS ACTIVITIES DETECTED</h3>
+                        <h3 className="text-lg sm:text-xl font-bold text-red-700">ATIVIDADES SUSPEITAS DETECTADAS</h3>
                       </div>
                       <p className="text-sm sm:text-base text-red-600 font-medium leading-relaxed">
-                        Our system discovered multiple suspicious activities linked to this person on 3 platforms
+                        Nosso sistema descobriu múltiplas atividades suspeitas vinculadas a esta pessoa em{" "}
+                        {selectedPlatforms.length} plataformas diferentes
                       </p>
+                    </div>
+
+                    <div className="mb-6 sm:mb-8">
+                      <h4 className="text-base sm:text-lg font-bold text-blue-600 mb-4">🔍 Plataformas Escaneadas:</h4>
+                      <div className="grid grid-cols-2 gap-3">
+                        {selectedPlatforms.map((platformName) => {
+                          const platform =
+                            monitoringPlatforms.find((p) => p.name === platformName) ||
+                            [
+                              { name: "OnlyFans", icon: Users, color: "text-pink-600", description: "Conteúdo adulto" },
+                              {
+                                name: "Omegle",
+                                icon: MessageSquare,
+                                color: "text-blue-600",
+                                description: "Chat anônimo",
+                              },
+                              {
+                                name: "Chatroulette",
+                                icon: Users,
+                                color: "text-purple-600",
+                                description: "Videochamadas aleatórias",
+                              },
+                              {
+                                name: "Kik",
+                                icon: MessageCircle,
+                                color: "text-orange-600",
+                                description: "Mensagens privadas",
+                              },
+                              {
+                                name: "Telegram",
+                                icon: MessageSquare,
+                                color: "text-cyan-600",
+                                description: "Chats secretos",
+                              },
+                              { name: "Facebook", icon: Users, color: "text-blue-500", description: "Rede social" },
+                            ].find((p) => p.name === platformName)
+
+                          if (!platform) return null
+
+                          return (
+                            <div key={platformName} className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+                              <platform.icon className={`w-5 h-5 ${platform.color}`} />
+                              <div>
+                                <p className="text-sm font-bold text-gray-900">{platform.name}</p>
+                                <p className="text-xs text-green-600">✓ Escaneado</p>
+                              </div>
+                            </div>
+                          )
+                        })}
+                      </div>
                     </div>
 
                     <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
                       <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 bg-gray-50 rounded-xl">
                         <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
                         <div>
-                          <h4 className="font-bold text-[#333333] text-sm sm:text-base mb-1 sm:mb-2">
-                            Last Activity: 18 hours ago
+                          <h4 className="font-bold text-blue-600 text-sm sm:text-base mb-1 sm:mb-2">
+                            Última Atividade: 18 horas atrás
+                          </h4>
+                          <p className="text-xs sm:text-sm text-gray-600">Apesar de afirmar que 'deletou tudo'...</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 bg-gray-50 rounded-xl">
+                        <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-bold text-blue-600 text-sm sm:text-base mb-1 sm:mb-2">
+                            {selectedPlatforms.length} Plataformas Atualmente Ativas
                           </h4>
                           <p className="text-xs sm:text-sm text-gray-600">
-                            Despite claiming to have 'deleted everything'...
+                            {selectedPlatforms.slice(0, 3).join(", ")} e uma{" "}
+                            <span className="animate-pulse text-red-500 font-bold">plataforma crítica +18</span>
                           </p>
                         </div>
                       </div>
@@ -1068,24 +1287,11 @@ export default function ParentalMonitoringApp() {
                       <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 bg-gray-50 rounded-xl">
                         <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
                         <div>
-                          <h4 className="font-bold text-[#333333] text-sm sm:text-base mb-1 sm:mb-2">
-                            4 Currently Active Platforms
+                          <h4 className="font-bold text-blue-600 text-sm sm:text-base mb-1 sm:mb-2">
+                            Conversas Recentes Detectadas
                           </h4>
                           <p className="text-xs sm:text-sm text-gray-600">
-                            WhatsApp, Discord, TikTok and one{" "}
-                            <span className="animate-pulse text-red-500 font-bold">critical platform +18</span>
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 bg-gray-50 rounded-xl">
-                        <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
-                        <div>
-                          <h4 className="font-bold text-[#333333] text-sm sm:text-base mb-1 sm:mb-2">
-                            Recent Conversations Detected
-                          </h4>
-                          <p className="text-xs sm:text-sm text-gray-600">
-                            Active messages with multiple contacts and groups this week
+                            Mensagens ativas com múltiplos contatos e grupos esta semana
                           </p>
                         </div>
                       </div>
@@ -1097,25 +1303,25 @@ export default function ParentalMonitoringApp() {
                           <span className="text-white text-xs sm:text-sm font-bold">💡</span>
                         </div>
                         <h3 className="text-base sm:text-lg font-bold text-blue-700">
-                          What you will see in the Complete Report:
+                          O que você verá no Relatório Completo:
                         </h3>
                       </div>
                       <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-blue-600">
                         <li className="flex items-center gap-2 sm:gap-3">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0" />
-                          Screenshots of all active profiles
+                          Capturas de tela de todos os perfis ativos
                         </li>
                         <li className="flex items-center gap-2 sm:gap-3">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0" />
-                          Discord conversations
+                          Conversas no Discord
                         </li>
                         <li className="flex items-center gap-2 sm:gap-3">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0" />
-                          Exact locations where they have been browsing
+                          Localizações exatas onde estiveram navegando
                         </li>
                         <li className="flex items-center gap-2 sm:gap-3">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0" />
-                          Timeline of all activities (you will be shocked)
+                          Cronograma de todas as atividades (você ficará chocado)
                         </li>
                       </ul>
                     </div>
@@ -1125,14 +1331,14 @@ export default function ParentalMonitoringApp() {
                       className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 sm:py-4 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-4 sm:mb-6 overflow-hidden flex items-center justify-center text-center"
                     >
                       <span className="block text-center leading-tight px-2 break-words whitespace-normal">
-                        🔓 UNLOCK COMPLETE EVIDENCE – SEE EVERYTHING
+                        🔓 DESBLOQUEAR EVIDÊNCIAS COMPLETAS – VER TUDO
                       </span>
                     </Button>
 
                     <div className="text-center">
                       <p className="text-xs sm:text-sm text-gray-500 flex items-center justify-center gap-2 font-medium">
                         <Lock className="w-4 h-4" />
-                        Complete anonymity guaranteed - They will never know you checked
+                        Anonimato completo garantido - Eles nunca saberão que você verificou
                       </p>
                     </div>
                   </CardContent>
@@ -1158,7 +1364,7 @@ export default function ParentalMonitoringApp() {
                     </div>
 
                     <h2 className="text-xl sm:text-2xl font-bold text-[#333333] mb-4 sm:mb-6">
-                      📊 Generating Complete Report...
+                      📊 Gerando Relatório Completo...
                     </h2>
 
                     <div className="mb-6 sm:mb-8">
@@ -1169,24 +1375,22 @@ export default function ParentalMonitoringApp() {
                     <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                       <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-green-50 rounded-xl">
                         <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
-                        <span className="text-xs sm:text-sm text-gray-700 font-medium">Profile photos analyzed</span>
+                        <span className="text-xs sm:text-sm text-gray-700 font-medium">Fotos do perfil analisadas</span>
                       </div>
                       <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-blue-50 rounded-xl">
                         <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
-                        <span className="text-xs sm:text-sm text-gray-700 font-medium">
-                          Processing conversations...
-                        </span>
+                        <span className="text-xs sm:text-sm text-gray-700 font-medium">Processando conversas...</span>
                       </div>
                       <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
                         <div className="w-4 h-4 sm:w-5 sm:h-5 bg-gray-300 rounded-full" />
-                        <span className="text-xs sm:text-sm text-gray-500">Finalizing report...</span>
+                        <span className="text-xs sm:text-sm text-gray-500">Finalizando relatório...</span>
                       </div>
                     </div>
 
                     <div className="text-center">
                       <p className="text-xs sm:text-sm text-gray-500 flex items-center justify-center gap-2 font-medium">
                         <Lock className="w-4 h-4" />
-                        Encrypting sensitive data for your privacy
+                        Criptografando dados sensíveis para sua privacidade
                       </p>
                     </div>
                   </CardContent>
@@ -1210,8 +1414,10 @@ export default function ParentalMonitoringApp() {
                     <div className="flex items-center gap-2 sm:gap-3">
                       <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse" />
                       <div>
-                        <h3 className="font-bold text-sm sm:text-base">🚨 PROFILE FOUND - ACTIVE ON SOCIAL NETWORKS</h3>
-                        <p className="text-xs sm:text-sm opacity-90">Last viewed: Online now</p>
+                        <h3 className="font-bold text-sm sm:text-base">
+                          🚨 PERFIL ENCONTRADO EM 3 REDES SOCIAIS E DOIS GRUPOS DA CIDADE E UMA CONVERSA DE OUTRA REGIÃO
+                        </h3>
+                        <p className="text-xs sm:text-sm opacity-90">Última visualização: Online agora</p>
                       </div>
                     </div>
                   </div>
@@ -1220,10 +1426,10 @@ export default function ParentalMonitoringApp() {
                     <div className="flex items-center gap-2 sm:gap-3">
                       <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6" />
                       <div>
-                        <h3 className="font-bold text-sm sm:text-base">⚠️ ATTENTION: ACTIVE PROFILE FOUND!</h3>
+                        <h3 className="font-bold text-sm sm:text-base">⚠️ ATENÇÃO: PERFIL ATIVO ENCONTRADO!</h3>
                         <p className="text-xs sm:text-sm opacity-90">
-                          We confirm that this number is linked to an ACTIVE profile on social networks. Most recent
-                          usage records detected in {city || "your area"}.
+                          Confirmamos que este número está vinculado a um perfil ATIVO nas redes sociais. Registros de
+                          uso mais recentes detectados em {city || "sua região"}.
                         </p>
                       </div>
                     </div>
@@ -1232,27 +1438,38 @@ export default function ParentalMonitoringApp() {
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
                   <div className="bg-white rounded-xl p-3 sm:p-4 text-center shadow-lg">
-                    <div className="text-xl sm:text-2xl font-bold text-red-500 mb-1">6</div>
-                    <div className="text-xs sm:text-sm text-gray-600 font-medium">CONTACTS (7 DAYS)</div>
+                    <div className="text-xl sm:text-2xl font-bold text-red-500 mb-1">8</div>
+                    <div className="text-xs sm:text-sm text-gray-600 font-medium">SITES (7 DIAS)</div>
                   </div>
                   <div className="bg-white rounded-xl p-3 sm:p-4 text-center shadow-lg">
                     <div className="text-xl sm:text-2xl font-bold text-orange-500 mb-1">30</div>
-                    <div className="text-xs sm:text-sm text-gray-600 font-medium">MESSAGES (7 DAYS)</div>
+                    <div className="text-xs sm:text-sm text-gray-600 font-medium">MENSAGENS (7 DIAS)</div>
                   </div>
                   <div className="bg-white rounded-xl p-3 sm:p-4 text-center shadow-lg">
-                    <div className="text-xl sm:text-2xl font-bold text-purple-500 mb-1">4</div>
-                    <div className="text-xs sm:text-sm text-gray-600 font-medium">ACTIVE CHATS</div>
+                    <div className="text-xl sm:text-2xl font-bold text-purple-500 mb-1">5</div>
+                    <div className="text-xs sm:text-sm text-gray-600 font-medium">FOTOS TELEGRAM</div>
                   </div>
                   <div className="bg-white rounded-xl p-3 sm:p-4 text-center shadow-lg">
-                    <div className="text-xl sm:text-2xl font-bold text-green-500 mb-1">12h</div>
-                    <div className="text-xs sm:text-sm text-gray-600 font-medium">LAST ACTIVITY</div>
+                    <div className="text-xl sm:text-2xl font-bold text-green-500 mb-1">4</div>
+                    <div className="text-xs sm:text-sm text-gray-600 font-medium">GRUPOS ATIVOS</div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
+                  <div className="bg-white rounded-xl p-3 sm:p-4 text-center shadow-lg">
+                    <div className="text-xl sm:text-2xl font-bold text-blue-500 mb-1">12h</div>
+                    <div className="text-xs sm:text-sm text-gray-600 font-medium">ÚLTIMA ATIVIDADE</div>
+                  </div>
+                  <div className="bg-white rounded-xl p-3 sm:p-4 text-center shadow-lg">
+                    <div className="text-xl sm:text-2xl font-bold text-indigo-500 mb-1">3</div>
+                    <div className="text-xs sm:text-sm text-gray-600 font-medium">ATIVIDADES NOTURNAS</div>
                   </div>
                 </div>
 
                 <Card className="bg-white rounded-2xl shadow-lg border-0 mb-6 sm:mb-8">
                   <CardContent className="p-4 sm:p-6">
                     <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-4 sm:mb-6">
-                      🔥 SUSPICIOUS CONTACTS FOUND
+                      🔥 CONTATOS SUSPEITOS ENCONTRADOS
                     </h3>
                     <div className="space-y-3 sm:space-y-4">
                       {generateSuspiciousContacts().map((profile, index) => (
@@ -1275,11 +1492,11 @@ export default function ParentalMonitoringApp() {
                 <Card className="bg-white rounded-2xl shadow-lg border-0 mb-6 sm:mb-8">
                   <CardContent className="p-4 sm:p-6">
                     <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-4 sm:mb-6">
-                      📸 CENSORED CONVERSATIONS
+                      📸 CONVERSAS CENSURADAS
                     </h3>
                     <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                      Get instant access to the complete report with uncensored conversations and history complete. Even
-                      if they try to delete it, we have everything saved.
+                      Obtenha acesso instantâneo ao relatório completo com conversas não censuradas e histórico
+                      completo. Mesmo que tentem apagar, temos tudo salvo.
                     </p>
 
                     <div className="relative">
@@ -1346,25 +1563,25 @@ export default function ParentalMonitoringApp() {
                         <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                       </div>
                       <h3 className="text-xl sm:text-2xl font-bold text-[#333333] mb-3 sm:mb-4">
-                        🔓 UNLOCK COMPLETE REPORT
+                        🔓 DESBLOQUEAR RELATÓRIO COMPLETO
                       </h3>
                       <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                        Get instant access to the complete report with uncensored conversations and history complete.
-                        Even if they try to delete, we have everything saved.
+                        Obtenha acesso instantâneo ao relatório completo com conversas não censuradas e histórico
+                        completo. Mesmo que tentem apagar, temos tudo salvo.
                       </p>
                     </div>
 
                     <div className="bg-gradient-to-r from-red-500 to-red-600 text-white p-4 sm:p-6 rounded-xl shadow-lg mb-4 sm:mb-6">
                       <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3">
                         <AlertTriangle className="w-6 h-6 sm:w-8 sm:h-8 animate-pulse" />
-                        <span className="font-bold text-lg sm:text-xl">THE REPORT WILL BE DELETED IN:</span>
+                        <span className="font-bold text-lg sm:text-xl">O RELATÓRIO SERÁ DELETADO EM:</span>
                       </div>
                       <div className="text-center mb-3">
                         <div className="text-3xl sm:text-4xl font-bold mb-2">{formatTime(timeLeft)}</div>
                       </div>
                       <p className="text-sm sm:text-base text-center leading-relaxed opacity-90">
-                        After the time expires, this report will be permanently removed for privacy reasons. Even if
-                        they claim to have deleted it, we still have access to the data.
+                        Após o tempo expirar, este relatório será removido permanentemente por motivos de privacidade.
+                        Mesmo que afirmem ter deletado, ainda temos acesso aos dados.
                       </p>
                     </div>
 
@@ -1374,13 +1591,15 @@ export default function ParentalMonitoringApp() {
                       }
                       className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 sm:py-4 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-4 sm:mb-6 overflow-hidden"
                     >
-                      <span className="block text-center leading-tight px-2">🔓 UNLOCK MY COMPLETE REPORT</span>
+                      <span className="block text-center leading-tight px-2">
+                        🔓 DESBLOQUEAR MEU RELATÓRIO COMPLETO
+                      </span>
                     </Button>
 
                     <div className="mt-4 sm:mt-6">
                       <p className="text-xs sm:text-sm text-gray-500 flex items-center justify-center gap-2 font-medium">
                         <Shield className="w-4 h-4" />
-                        100% Anonymous - They'll Never Know
+                        100% Anônimo - Eles Nunca Saberão
                       </p>
                     </div>
                   </CardContent>
@@ -1429,43 +1648,44 @@ export default function ParentalMonitoringApp() {
                         🔥 62% OFF - TEMPO LIMITADO
                       </div>
                       <p className="text-sm sm:text-base text-gray-600 font-medium">
-                        One-time payment for lifetime access to your complete report
+                        Pagamento único para acesso vitalício ao seu relatório completo
                       </p>
                     </div>
 
                     <div className="text-left mb-6 sm:mb-8">
                       <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-4 sm:mb-6 text-center">
-                        What you will unlock:
+                        O que você vai desbloquear:
                       </h3>
                       <div className="space-y-3 sm:space-y-4">
                         <div className="flex items-start gap-3 sm:gap-4">
                           <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
                           <span className="text-sm sm:text-base text-gray-700 font-medium">
-                            All Profile Photos (including those they think you'll never see)
+                            Todas as Fotos do Perfil (incluindo aquelas que eles acham que você nunca verá)
                           </span>
                         </div>
                         <div className="flex items-start gap-3 sm:gap-4">
                           <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
                           <span className="text-sm sm:text-base text-gray-700 font-medium">
-                            Complete Conversation History (see exactly what they're saying to other people)
+                            Histórico Completo de Conversas (veja exatamente o que eles estão dizendo para outras
+                            pessoas)
                           </span>
                         </div>
                         <div className="flex items-start gap-3 sm:gap-4">
                           <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
                           <span className="text-sm sm:text-base text-gray-700 font-medium">
-                            Exact Location Data (where they've been 'working late' or 'with friends')
+                            Dados Exatos de Localização (onde eles estiveram 'trabalhando até tarde' ou 'com amigos')
                           </span>
                         </div>
                         <div className="flex items-start gap-3 sm:gap-4">
                           <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
                           <span className="text-sm sm:text-base text-gray-700 font-medium">
-                            Active Contacts and Messages (names, photos and chat frequency)
+                            Contatos Ativos e Mensagens (nomes, fotos e frequência de chat)
                           </span>
                         </div>
                         <div className="flex items-start gap-3 sm:gap-4">
                           <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
                           <span className="text-sm sm:text-base text-gray-700 font-medium">
-                            Timeline of All Activities (when they were most active while with you)
+                            Cronograma de Todas as Atividades (quando eles estavam mais ativos enquanto com você)
                           </span>
                         </div>
                       </div>
@@ -1493,7 +1713,7 @@ export default function ParentalMonitoringApp() {
                       </div>
                       <div className="text-2xl sm:text-3xl font-bold text-red-600 mb-2">{formatTime(timeLeft)}</div>
                       <p className="text-xs sm:text-sm text-red-600">
-                        This is your only chance to access this report. Once deleted, it cannot be recovered.
+                        Esta é sua única chance de acessar este relatório. Uma vez deletado, não pode ser recuperado.
                       </p>
                     </div>
 
@@ -1502,14 +1722,14 @@ export default function ParentalMonitoringApp() {
                       className="w-full bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-4 sm:py-6 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-4 sm:mb-6 overflow-hidden"
                     >
                       <span className="block text-center leading-tight px-2">
-                        🔓 UNLOCK MY REPORT - I'M READY FOR THE TRUTH
+                        🔓 DESBLOQUEAR MEU RELATÓRIO - ESTOU PRONTO PARA A VERDADE
                       </span>
                     </Button>
 
                     <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 sm:p-6 mb-4 sm:mb-6">
                       <p className="text-sm sm:text-base text-blue-700 font-medium leading-relaxed">
-                        You're not invading privacy - you're protecting your emotional well-being. You have the right to
-                        make informed decisions about your relationship.
+                        Você não está invadindo privacidade - você está protegendo seu bem-estar emocional. Você tem o
+                        direito de tomar decisões informadas sobre seu relacionamento.
                       </p>
                     </div>
 
@@ -1526,8 +1746,7 @@ export default function ParentalMonitoringApp() {
                             <p className="text-xs sm:text-sm text-green-600 font-medium">✓ Usuário Verificado</p>
                           </div>
                           <p className="text-sm sm:text-base text-gray-600 italic leading-relaxed">
-                            "I wish I had done this months ago. It would have saved me so much anxiety and time
-                            perdido."
+                            "Eu gostaria de ter feito isso há meses. Teria me poupado tanta ansiedade e tempo perdido."
                           </p>
                           <div className="flex items-center text-[#FFD700] text-sm mt-2">
                             <span>⭐⭐⭐⭐⭐</span>

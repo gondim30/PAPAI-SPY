@@ -1,86 +1,58 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-  .dark {
-    --background: 0 0% 3.9%;
+    /* Professional Dark Theme - Inspired by v0, Next.js, and modern enterprise apps */
+    --background: 0 0% 2%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 95%;
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 8%;
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
     --ring: 0 0% 83.1%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 0.75rem;
+
+    /* Professional accent colors */
+    --brand-primary: 220 100% 60%;
+    --brand-secondary: 280 100% 70%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --info: 199 89% 48%;
+
+    /* Sophisticated grays */
+    --gray-50: 0 0% 98%;
+    --gray-100: 0 0% 96%;
+    --gray-200: 0 0% 90%;
+    --gray-300: 0 0% 83%;
+    --gray-400: 0 0% 64%;
+    --gray-500: 0 0% 45%;
+    --gray-600: 0 0% 32%;
+    --gray-700: 0 0% 25%;
+    --gray-800: 0 0% 15%;
+    --gray-900: 0 0% 9%;
+    --gray-950: 0 0% 4%;
   }
 }
 
@@ -88,314 +60,175 @@ body {
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Professional typography scale */
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-balance;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-semibold tracking-tight text-balance;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+
+  p {
+    @apply text-base md:text-lg leading-relaxed text-pretty;
+  }
+
+  /* Professional button styles */
+  .btn-primary {
+    @apply bg-white text-black hover:bg-gray-100 font-medium px-6 py-3 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border border-gray-300 text-white hover:bg-gray-800 font-medium px-6 py-3 rounded-lg transition-all duration-200;
+  }
+
+  /* Professional card styles */
+  .card-professional {
+    @apply bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  /* Gradient backgrounds for hero sections */
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--gray-950)) 100%);
+  }
+
+  /* Professional navigation */
+  .nav-professional {
+    @apply backdrop-blur-md bg-background/80 border-b border-border;
+  }
+
+  /* Status indicators */
+  .status-success {
+    @apply bg-green-500/10 text-green-400 border border-green-500/20;
+  }
+
+  .status-warning {
+    @apply bg-yellow-500/10 text-yellow-400 border border-yellow-500/20;
+  }
+
+  .status-error {
+    @apply bg-red-500/10 text-red-400 border border-red-500/20;
+  }
+
+  .status-info {
+    @apply bg-blue-500/10 text-blue-400 border border-blue-500/20;
   }
 }
 
-/* Avatar styles for testimonials */
-.avatar-img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 12px;
-  display: block;
-  background-color: #f0f0f0;
-  border: 2px solid #e5e7eb;
-}
-
-@media (max-width: 640px) {
-  .avatar-img {
-    width: 40px;
-    height: 40px;
+/* Professional animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Enhanced testimonial styles */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+/* Professional loading states */
+.loading-skeleton {
+  @apply bg-gray-800 animate-pulse rounded;
+}
+
+/* Professional focus states */
+.focus-professional {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-background;
+}
+
+/* Remove old testimonial styles and replace with professional ones */
 .testimonial-card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  padding: 16px;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  @apply card-professional;
 }
 
 .testimonial-card:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  transform: translateY(-2px);
+  @apply shadow-lg transform translate-y-[-2px];
 }
 
-@media (min-width: 640px) {
-  .testimonial-card {
-    padding: 20px;
-  }
+/* Professional stepper */
+.stepper-professional {
+  @apply flex items-center justify-center space-x-8 py-8;
 }
 
-/* Avatar improvements */
-.testimonial-card img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-  border: 2px solid #e5e7eb;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.stepper-step-professional {
+  @apply flex flex-col items-center space-y-2 text-center;
 }
 
-@media (min-width: 640px) {
-  .testimonial-card img {
-    width: 56px;
-    height: 56px;
-  }
+.stepper-step-professional.active {
+  @apply text-blue-400;
 }
 
-/* Quote icon styling */
-.testimonial-card svg {
-  opacity: 0.6;
-  flex-shrink: 0;
+.stepper-step-professional.completed {
+  @apply text-green-400;
 }
 
-/* Text improvements */
-.testimonial-card p {
-  line-height: 1.6;
-  margin: 0;
+/* Professional form styles */
+.form-professional input,
+.form-professional textarea,
+.form-professional select {
+  @apply bg-input border border-border rounded-lg px-4 py-3 focus-professional transition-colors;
 }
 
-/* Stars styling */
-.testimonial-card .stars {
-  color: #ffd700;
-  font-size: 16px;
-  letter-spacing: 2px;
+.form-professional label {
+  @apply text-sm font-medium text-foreground mb-2 block;
 }
 
-@media (min-width: 640px) {
-  .testimonial-card .stars {
-    font-size: 18px;
-  }
+/* Professional spacing utilities */
+.section-padding {
+  @apply py-16 md:py-24 lg:py-32;
 }
 
-/* Verified badge styling */
-.verified-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 12px;
-  font-weight: 500;
-  color: #059669;
+.container-professional {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-@media (min-width: 640px) {
-  .verified-badge {
-    font-size: 14px;
-  }
+/* Professional grid layouts */
+.grid-professional {
+  @apply grid gap-8 md:gap-12;
 }
 
-/* Fallback for broken images */
-img[alt*="Photo"]:not([src*="data:"]) {
-  background-color: #f3f4f6;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'/%3E%3C/svg%3E");
-  background-size: 60%;
-  background-repeat: no-repeat;
-  background-position: center;
+.grid-2-cols {
+  @apply grid-cols-1 md:grid-cols-2;
 }
 
-/* Testimonials container - Responsive layout */
-.container-testimonials {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: nowrap;
+.grid-3-cols {
+  @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
 }
 
-/* Testimonial cards */
-.testimonial-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 16px;
-  max-width: 320px;
-  flex: 1;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.testimonial-card:hover {
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
-}
-
-/* Testimonial text */
-.testimonial-text {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #555555;
-  margin-bottom: 8px;
-  word-wrap: break-word;
-  font-weight: 400;
-}
-
-/* Testimonial author name */
-.testimonial-name {
-  font-weight: bold;
-  font-size: 16px;
-  color: #333333;
-  margin-bottom: 2px;
-}
-
-/* Subtitles */
-.verified-subtitle {
-  font-size: 12px;
-  font-weight: 500;
-  color: #059669;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.date-subtitle {
-  font-size: 12px;
-  font-weight: 500;
-  color: #2563eb;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .container-testimonials {
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-  }
-
-  .testimonial-card {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .testimonial-text {
-    font-size: 15px;
-  }
-
-  .testimonial-name {
-    font-size: 15px;
-  }
-}
-
-/* Tablet adjustments */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .container-testimonials {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .testimonial-card {
-    max-width: 280px;
-  }
-}
-
-/* Large desktop */
-@media (min-width: 1025px) {
-  .testimonial-card {
-    max-width: 350px;
-  }
-}
-
-/* Responsive stepper with horizontal scroll */
-.stepper-container {
-  display: flex;
-  overflow-x: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-}
-
-.stepper-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
-
-.stepper-step {
-  flex: 0 0 auto;
-  min-width: 80px;
-  text-align: left;
-  font-size: 12px;
-}
-
-/* Touch scroll improvements for mobile */
-@media (max-width: 768px) {
-  .stepper-container {
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    padding: 12px 16px;
-  }
-
-  .stepper-step {
-    min-width: 85px;
-    font-size: 12px;
-  }
-
-  /* Subtle visual indicator that it's scrollable */
-  .stepper-container::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 20px;
-    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8));
-    pointer-events: none;
-  }
-}
-
-/* Desktop - normal layout */
-@media (min-width: 769px) {
-  .stepper-container {
-    justify-content: center;
-    overflow-x: visible;
-    padding: 16px 20px;
-  }
-
-  .stepper-step {
-    min-width: 100px;
-    text-align: center;
-    font-size: 14px;
-  }
-}
-
-/* Smooth transitions for steps */
-.stepper-step span {
-  transition: all 0.3s ease;
-}
-
-/* Hover effect only on desktop */
-@media (min-width: 769px) {
-  .stepper-step:hover span {
-    transform: scale(1.05);
-  }
-}
-
-/* Ensure content is not cut off */
-.stepper-step {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-}
-
-/* Improve text readability */
-@media (max-width: 640px) {
-  .stepper-step span {
-    font-size: 11px;
-    font-weight: 600;
-  }
-}
-
-@media (min-width: 641px) and (max-width: 768px) {
-  .stepper-step span {
-    font-size: 12px;
-    font-weight: 600;
-  }
+.grid-4-cols {
+  @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-4;
 }
