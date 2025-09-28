@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { MapPin, Camera, MessageCircle } from "lucide-react"
+import { MapPin, Camera, MessageCircle, Clock } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
 export default function EmergencyDownsellPage() {
@@ -26,7 +26,7 @@ export default function EmergencyDownsellPage() {
   // Get phone and photo from URL params or sessionStorage
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search)
-    const tel = urlParams.get("tel") || sessionStorage.getItem("phoneNumber") || "+1 (555) 123-4567"
+    const tel = urlParams.get("tel") || sessionStorage.getItem("phoneNumber") || "+55 (11) 99999-9999"
     const photo = urlParams.get("photo") || sessionStorage.getItem("profilePhoto")
 
     setPhoneNumber(tel)
@@ -43,8 +43,6 @@ export default function EmergencyDownsellPage() {
     return () => clearInterval(timer)
   }, [])
 
-  // Load TriboPay script
-
   const formatTime = (seconds: number) => {
     const hours = Math.floor(seconds / 3600)
     const mins = Math.floor((seconds % 3600) / 60)
@@ -53,59 +51,56 @@ export default function EmergencyDownsellPage() {
   }
 
   const downsellMessages = {
-    lastChance: "LAST CHANCE!",
-    loseAccess: "Don't lose access to the complete report",
-    specialOffer: "SPECIAL LAST CHANCE OFFER",
-    aboutToLose: "You were about to lose permanent access...",
-    specialOfferNever: "Since you've made it this far, we're making a special offer that will never be repeated.",
-    discountToday: "42% discount - Today only",
-    accessSuspicious: "I WANT TO ACCESS THE SUSPICIOUS CONTENT NOW",
-    dontWantAccess: "I don't want to access the suspicious content now",
+    lastChance: "ÚLTIMA CHANCE!",
+    loseAccess: "Não perca o acesso ao relatório completo",
+    specialOffer: "OFERTA ESPECIAL DE ÚLTIMA CHANCE",
+    aboutToLose: "Você estava prestes a perder o acesso permanente...",
+    specialOfferNever: "Como você chegou até aqui, estamos fazendo uma oferta especial que nunca será repetida.",
+    discountToday: "42% de desconto - Apenas hoje",
+    accessSuspicious: "QUERO ACESSAR O CONTEÚDO SUSPEITO AGORA",
+    dontWantAccess: "Não quero acessar o conteúdo suspeito agora",
   }
 
   return (
-    <div
-      className="min-h-screen bg-gray-50"
-      style={{ fontFamily: "Inter, -apple-system, BlinkMacSystemFont, sans-serif" }}
-    >
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-orange-50">
       {/* Emergency Alert Header */}
-      <div className="bg-orange-600 text-white text-center py-4 px-4">
+      <div className="bg-gradient-to-r from-orange-600 to-orange-700 text-white text-center py-4 px-4 shadow-lg">
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-2xl sm:text-3xl font-bold mb-2">⚠️ {downsellMessages.lastChance}</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold mb-2">{downsellMessages.lastChance}</h1>
           <p className="text-lg sm:text-xl">{downsellMessages.loseAccess}</p>
         </motion.div>
       </div>
 
       <div className="max-w-4xl mx-auto px-4 py-6 space-y-8">
         {/* Special Offer */}
-        <Card className="border-orange-200 bg-orange-50">
+        <Card className="border-orange-200 bg-white shadow-xl">
           <CardContent className="p-6 text-center">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">{downsellMessages.specialOffer}</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-800 mb-4">{downsellMessages.specialOffer}</h2>
             <p className="text-lg font-semibold text-orange-600 mb-4">{downsellMessages.aboutToLose}</p>
-            <p className="text-gray-700 mb-6">{downsellMessages.specialOfferNever}</p>
+            <p className="text-slate-700 mb-6">{downsellMessages.specialOfferNever}</p>
 
             {/* Pricing */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg mb-6">
-              <div className="text-2xl font-bold text-gray-400 line-through mb-2">$47</div>
-              <div className="text-4xl font-bold text-orange-600 mb-4">$27</div>
-              <div className="text-sm text-gray-600 mb-4">{downsellMessages.discountToday}</div>
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-6 shadow-lg mb-6 border border-orange-200">
+              <div className="text-2xl font-bold text-slate-400 line-through mb-2">R$ 47</div>
+              <div className="text-4xl font-bold text-orange-600 mb-4">R$ 27</div>
+              <div className="text-sm text-slate-600 mb-4">{downsellMessages.discountToday}</div>
 
               {/* TriboPay OneClick Buttons */}
               <div className="text-center">
                 <div style={{ width: "auto", maxWidth: "400px", margin: "0 auto" }}>
                   <button
                     data-fornpay="3olowe4hoo"
-                    className="fornpay_btn bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded border border-green-700 cursor-pointer text-lg mb-4 w-full transition-colors"
+                    className="fornpay_btn bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold py-3 px-6 rounded-lg border border-emerald-700 cursor-pointer text-lg mb-4 w-full transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
-                    ✅ {downsellMessages.accessSuspicious}
+                    {downsellMessages.accessSuspicious}
                   </button>
 
                   <button
-                    data-downsell="https://www.tindercheck.online/emergency2"
+                    data-downsell="https://www.familysafe.online/emergency2"
                     className="fornpay_downsell mt-4 cursor-pointer text-base underline text-blue-600 hover:text-blue-800 transition-colors block w-full bg-transparent border-0"
                   >
                     {downsellMessages.dontWantAccess}
@@ -117,29 +112,29 @@ export default function EmergencyDownsellPage() {
         </Card>
 
         {/* What You're Missing */}
-        <Card className="border-red-200 bg-red-50">
+        <Card className="border-red-200 bg-white shadow-xl">
           <CardContent className="p-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-6 text-center">❌ What you're missing by refusing:</h3>
+            <h3 className="text-xl font-bold text-slate-800 mb-6 text-center">O que você está perdendo ao recusar:</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <Camera className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-gray-800">Uncensored intimate photos</h4>
-                  <p className="text-sm text-gray-600">All the photos he/she sends to others</p>
+                  <h4 className="font-semibold text-slate-800">Fotos íntimas sem censura</h4>
+                  <p className="text-sm text-slate-600">Todas as fotos que ele/ela envia para outros</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MessageCircle className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-gray-800">Complete conversations</h4>
-                  <p className="text-sm text-gray-600">What's really being said in the messages</p>
+                  <h4 className="font-semibold text-slate-800">Conversas completas</h4>
+                  <p className="text-sm text-slate-600">O que realmente está sendo dito nas mensagens</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-gray-800">Exact location of meetups</h4>
-                  <p className="text-sm text-gray-600">Where and when the hookups are arranged</p>
+                  <h4 className="font-semibold text-slate-800">Localização exata dos encontros</h4>
+                  <p className="text-sm text-slate-600">Onde e quando os encontros são marcados</p>
                 </div>
               </div>
             </div>
@@ -147,32 +142,34 @@ export default function EmergencyDownsellPage() {
         </Card>
 
         {/* Time Pressure */}
-        <Card className="border-red-500 bg-gradient-to-r from-red-50 to-orange-50">
+        <Card className="border-red-300 bg-gradient-to-r from-red-50 to-orange-50 shadow-xl">
           <CardContent className="p-6">
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-red-600 mb-2">⏰ TIME IS RUNNING OUT!</h3>
-              <p className="text-lg font-semibold text-gray-700">
-                This offer expires in: <span className="text-red-600 font-mono">{formatTime(timeLeft)}</span>
+              <h3 className="text-2xl font-bold text-red-600 mb-2 flex items-center justify-center gap-2">
+                <Clock className="w-8 h-8" />O TEMPO ESTÁ ACABANDO!
+              </h3>
+              <p className="text-lg font-semibold text-slate-700">
+                Esta oferta expira em: <span className="text-red-600 font-mono">{formatTime(timeLeft)}</span>
               </p>
             </div>
             <div className="text-center">
-              <p className="text-gray-700 mb-4">
-                After the time expires, you will never have access to this information again.
+              <p className="text-slate-700 mb-4">
+                Após o tempo expirar, você nunca mais terá acesso a essas informações.
               </p>
               <p className="text-red-600 font-semibold">
-                The data will be permanently deleted for confidentiality reasons.
+                Os dados serão permanentemente deletados por motivos de confidencialidade.
               </p>
             </div>
           </CardContent>
         </Card>
 
         {/* Final CTA */}
-        <Card className="border-green-200 bg-green-50">
+        <Card className="border-emerald-200 bg-white shadow-xl">
           <CardContent className="p-6 text-center">
-            <h3 className="text-xl font-bold text-green-700 mb-4">✅ Last chance to discover the truth</h3>
-            <p className="text-gray-700 mb-6">
-              Don't let doubt consume you. For only $27, you'll have complete and permanent access to all the
-              information.
+            <h3 className="text-xl font-bold text-emerald-700 mb-4">Última chance de descobrir a verdade</h3>
+            <p className="text-slate-700 mb-6">
+              Não deixe a dúvida te consumir. Por apenas R$ 27, você terá acesso completo e permanente a todas as
+              informações.
             </p>
 
             {/* Final CTA with TriboPay */}
@@ -180,13 +177,13 @@ export default function EmergencyDownsellPage() {
               <div style={{ width: "auto", maxWidth: "400px", margin: "0 auto" }}>
                 <button
                   data-fornpay="3olowe4hoo"
-                  className="fornpay_btn bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded border border-green-700 cursor-pointer text-lg mb-4 w-full transition-colors"
+                  className="fornpay_btn bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold py-3 px-6 rounded-lg border border-emerald-700 cursor-pointer text-lg mb-4 w-full transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
-                  ✅ {downsellMessages.accessSuspicious}
+                  {downsellMessages.accessSuspicious}
                 </button>
 
                 <button
-                  data-downsell="https://www.tindercheck.online/emergency2"
+                  data-downsell="https://www.familysafe.online/emergency2"
                   className="fornpay_downsell mt-4 cursor-pointer text-base underline text-blue-600 hover:text-blue-800 transition-colors block w-full bg-transparent border-0"
                 >
                   {downsellMessages.dontWantAccess}

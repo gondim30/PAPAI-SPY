@@ -8,14 +8,15 @@ export default function Emergency2Page() {
   const [timeLeft, setTimeLeft] = useState(15 * 60) // 15 minutes in seconds
 
   const offerMessages = {
-    exclusiveOffer: "EXCLUSIVE OFFER - LIMITED TIME",
-    recoverDeleted: "Recover Deleted Messages & Hidden Content",
-    offerExpires: "Offer expires in:",
-    discoverHiding: "Discover What They're Hiding From You",
-    congratulations: "Congratulations on your courage to seek the truth about your relationship.",
-    advancedApp: "Our advanced application allows you to recover all deleted messages, photos and videos",
-    exclusiveAvailable: "This exclusive offer is only available on this page.",
-    normallyValued: "Normally valued at $100, you can get it now for only $47 (over 50% off).",
+    exclusiveOffer: "OFERTA EXCLUSIVA - TEMPO LIMITADO",
+    recoverDeleted: "Recuperar Mensagens Deletadas e Conteúdo Oculto",
+    offerExpires: "Oferta expira em:",
+    discoverHiding: "Descubra o que Estão Escondendo de Você",
+    congratulations: "Parabéns por sua coragem em buscar a verdade sobre seu relacionamento.",
+    advancedApp: "Nosso aplicativo avançado permite recuperar todas as mensagens, fotos e vídeos deletados",
+    exclusiveAvailable: "Esta oferta exclusiva está disponível apenas nesta página.",
+    normallyValued:
+      "Normalmente avaliado em R$ 100, você pode obtê-lo agora por apenas R$ 47 (mais de 50% de desconto).",
   }
 
   useEffect(() => {
@@ -35,11 +36,11 @@ export default function Emergency2Page() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50">
-      <div className="fixed top-0 left-0 right-0 z-50 bg-red-600 text-white py-3 px-4 text-center font-bold text-sm md:text-base shadow-lg">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-orange-50">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-4 text-center font-semibold text-sm md:text-base shadow-lg">
         <div className="flex items-center justify-center gap-2">
-          <AlertTriangle className="w-5 h-5 animate-pulse" />🚨 DO NOT CLOSE OR REFRESH THIS PAGE, OR YOU MIGHT
-          ENCOUNTER AN ERROR WITH YOUR PURCHASE.
+          <AlertTriangle className="w-5 h-5 animate-pulse" />
+          NÃO FECHE OU ATUALIZE ESTA PÁGINA, OU VOCÊ PODE ENCONTRAR UM ERRO COM SUA COMPRA.
         </div>
       </div>
 
@@ -51,12 +52,12 @@ export default function Emergency2Page() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <div className="inline-flex items-center gap-2 bg-red-100 text-red-800 px-4 py-2 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-red-100 text-red-800 px-4 py-2 rounded-full mb-6 shadow-md">
               <AlertTriangle className="w-5 h-5" />
               <span className="font-semibold">{offerMessages.exclusiveOffer}</span>
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-3xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight">
               {offerMessages.recoverDeleted}
             </h1>
 
@@ -77,75 +78,74 @@ export default function Emergency2Page() {
             className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 mb-8"
           >
             <div className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6 text-center">
                 {offerMessages.discoverHiding}
               </h2>
 
-              <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+              <div className="prose prose-lg max-w-none text-slate-700 leading-relaxed">
                 <p className="text-xl mb-6">
-                  <strong>{offerMessages.congratulations}</strong> It's painful to imagine your loved one sharing
-                  moments with someone else, but you have the intelligence and determination to discover the truth.
+                  <strong>{offerMessages.congratulations}</strong> É doloroso imaginar seu ente querido compartilhando
+                  momentos com outra pessoa, mas você tem a inteligência e determinação para descobrir a verdade.
                 </p>
 
                 <p className="text-lg mb-6">
-                  {offerMessages.advancedApp} without letting any secret be hidden from you.
+                  {offerMessages.advancedApp} sem deixar que nenhum segredo seja escondido de você.
                 </p>
 
-                <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-6 mb-6">
+                <div className="bg-gradient-to-r from-emerald-50 to-blue-50 rounded-lg p-6 mb-6 border border-emerald-200">
                   <p className="text-lg mb-4">
-                    <strong>{offerMessages.exclusiveAvailable}</strong> Normally valued at{" "}
-                    <span className="line-through text-red-500">$100</span>, you can get it now for only{" "}
-                    <span className="text-green-600 font-bold text-2xl">$47</span> (over 50% off).
+                    <strong>{offerMessages.exclusiveAvailable}</strong> Normalmente avaliado em{" "}
+                    <span className="line-through text-red-500">R$ 100</span>, você pode obtê-lo agora por apenas{" "}
+                    <span className="text-emerald-600 font-bold text-2xl">R$ 47</span> (mais de 50% de desconto).
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl">
+              <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-md">
                 <MessageSquare className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="font-bold text-lg mb-2">Deleted Messages</h3>
-                <p className="text-gray-600">Recover all deleted conversations and WhatsApp chats</p>
+                <h3 className="font-bold text-lg mb-2">Mensagens Deletadas</h3>
+                <p className="text-slate-600">Recupere todas as conversas deletadas e chats do WhatsApp</p>
               </div>
 
-              <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl">
+              <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl shadow-md">
                 <ImageIcon className="w-12 h-12 text-purple-600 mx-auto mb-4" />
-                <h3 className="font-bold text-lg mb-2">Hidden Photos</h3>
-                <p className="text-gray-600">Access deleted images and private photo exchanges</p>
+                <h3 className="font-bold text-lg mb-2">Fotos Ocultas</h3>
+                <p className="text-slate-600">Acesse imagens deletadas e trocas de fotos privadas</p>
               </div>
 
-              <div className="text-center p-6 bg-gradient-to-br from-red-50 to-red-100 rounded-xl">
+              <div className="text-center p-6 bg-gradient-to-br from-red-50 to-red-100 rounded-xl shadow-md">
                 <Video className="w-12 h-12 text-red-600 mx-auto mb-4" />
-                <h3 className="font-bold text-lg mb-2">Secret Videos</h3>
-                <p className="text-gray-600">Discover deleted video content and voice messages</p>
+                <h3 className="font-bold text-lg mb-2">Vídeos Secretos</h3>
+                <p className="text-slate-600">Descubra conteúdo de vídeo deletado e mensagens de voz</p>
               </div>
             </div>
 
-            <div className="bg-green-50 rounded-xl p-6 mb-8">
-              <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center gap-2">
-                <Shield className="w-6 h-6" />
-                What You Get:
+            <div className="bg-emerald-50 rounded-xl p-6 mb-8 border border-emerald-200">
+              <h3 className="text-xl font-bold text-emerald-800 mb-4 flex items-center gap-2">
+                <Shield className="w-6 h-6" />O que Você Recebe:
               </h3>
-              <ul className="space-y-3 text-green-700">
+              <ul className="space-y-3 text-emerald-700">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  You'll receive a detailed guide to use the application effectively
+                  <CheckCircle className="w-5 h-5 text-emerald-600" />
+                  Você receberá um guia detalhado para usar o aplicativo efetivamente
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  30-day money-back guarantee included
+                  <CheckCircle className="w-5 h-5 text-emerald-600" />
+                  Garantia de devolução do dinheiro em 30 dias incluída
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  24/7 customer support access
+                  <CheckCircle className="w-5 h-5 text-emerald-600" />
+                  Acesso ao suporte ao cliente 24/7
                 </li>
               </ul>
             </div>
 
             <div className="text-center mb-8">
-              <p className="text-lg text-gray-700 mb-6">
-                <strong>Act now to avoid deception and ensure honesty in your relationship.</strong> Click below before
-                this opportunity disappears.
+              <p className="text-lg text-slate-700 mb-6">
+                <strong>Aja agora para evitar decepção e garantir honestidade em seu relacionamento.</strong> Clique
+                abaixo antes que esta oportunidade desapareça.
               </p>
             </div>
 
@@ -153,16 +153,16 @@ export default function Emergency2Page() {
               <div style={{ width: "auto", maxWidth: "400px", margin: "0 auto" }}>
                 <button
                   data-fornpay="d1hwl3oy3x"
-                  className="fornpay_btn bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded border border-green-700 cursor-pointer text-lg mb-4 w-full transition-colors"
+                  className="fornpay_btn bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold py-3 px-6 rounded-lg border border-emerald-700 cursor-pointer text-lg mb-4 w-full transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
-                  ✅ YES, I WANT TO SEE DELETED AND HIDDEN MESSAGES
+                  SIM, QUERO VER MENSAGENS DELETADAS E OCULTAS
                 </button>
 
                 <button
-                  data-downsell="https://www.tindercheck.online/thanks"
+                  data-downsell="https://www.familysafe.online/thanks"
                   className="fornpay_downsell mt-4 cursor-pointer text-base underline text-blue-600 hover:text-blue-800 transition-colors block w-full bg-transparent border-none"
                 >
-                  No, I don't want to access the deleted messages, audios, or photos.
+                  Não, não quero acessar as mensagens, áudios ou fotos deletadas.
                 </button>
               </div>
             </div>
@@ -172,15 +172,15 @@ export default function Emergency2Page() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="text-center text-gray-600"
+            className="text-center text-slate-600"
           >
             <div className="flex items-center justify-center gap-4 mb-4">
-              <Shield className="w-6 h-6 text-green-600" />
-              <span>Secure Payment</span>
+              <Shield className="w-6 h-6 text-emerald-600" />
+              <span>Pagamento Seguro</span>
               <span>•</span>
-              <span>SSL Encrypted</span>
+              <span>SSL Criptografado</span>
               <span>•</span>
-              <span>Money-Back Guarantee</span>
+              <span>Garantia de Devolução do Dinheiro</span>
             </div>
           </motion.div>
         </div>

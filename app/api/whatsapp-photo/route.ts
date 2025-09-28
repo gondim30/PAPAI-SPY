@@ -10,7 +10,20 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const { phone } = await request.json()
+    let phone: string
+    try {
+      const body = await request.json()
+      phone = body.phone
+    } catch (jsonError) {
+      console.error("JSON parsing error:", jsonError)
+      return NextResponse.json(
+        { success: false, error: "Invalid JSON format" },
+        {
+          status: 400,
+          headers: { "Access-Control-Allow-Origin": "*" },
+        },
+      )
+    }
 
     if (!phone) {
       return NextResponse.json(
@@ -31,43 +44,60 @@ export async function POST(request: NextRequest) {
       fullNumber = "55" + cleanPhone
     }
 
-    const response = await fetch(
-      `https://primary-production-aac6.up.railway.app/webhook/request_photo?tel=${fullNumber}`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          Origin: "https://whatspy.chat",
+    try {
+      const response = await fetch(
+        `https://primary-production-aac6.up.railway.app/webhook/request_photo?tel=${fullNumber}`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            Origin: "https://whatspy.chat",
+          },
+          // 10 second timeout
+          signal: AbortSignal.timeout?.(10_000),
         },
-        // 10 second timeout (Edge Runtime accepts AbortController)
-        signal: AbortSignal.timeout?.(10_000),
-      },
-    )
+      )
 
-    // If external API fails, return default payload with 200 status
-    if (!response.ok) {
-      console.error("External API returned status:", response.status)
+      // If external API fails, return default payload with 200 status
+      if (!response.ok) {
+        console.error("External API returned status:", response.status)
+        return NextResponse.json(fallbackPayload, {
+          status: 200,
+          headers: { "Access-Control-Allow-Origin": "*" },
+        })
+      }
+
+      let data
+      try {
+        data = await response.json()
+      } catch (parseError) {
+        console.error("Failed to parse external API response:", parseError)
+        return NextResponse.json(fallbackPayload, {
+          status: 200,
+          headers: { "Access-Control-Allow-Origin": "*" },
+        })
+      }
+
+      const isPhotoPrivate = !data?.link || data.link.includes("no-user-image-icon")
+
+      return NextResponse.json(
+        {
+          success: true,
+          result: isPhotoPrivate ? fallbackPayload.result : data.link,
+          is_photo_private: isPhotoPrivate,
+        },
+        {
+          status: 200,
+          headers: { "Access-Control-Allow-Origin": "*" },
+        },
+      )
+    } catch (fetchError) {
+      console.error("Network error:", fetchError)
       return NextResponse.json(fallbackPayload, {
         status: 200,
         headers: { "Access-Control-Allow-Origin": "*" },
       })
     }
-
-    const data = await response.json()
-
-    const isPhotoPrivate = !data?.link || data.link.includes("no-user-image-icon")
-
-    return NextResponse.json(
-      {
-        success: true,
-        result: isPhotoPrivate ? fallbackPayload.result : data.link,
-        is_photo_private: isPhotoPrivate,
-      },
-      {
-        status: 200,
-        headers: { "Access-Control-Allow-Origin": "*" },
-      },
-    )
   } catch (err) {
     console.error("WhatsApp webhook error:", err)
     // Never let status 500 propagate; return fallback

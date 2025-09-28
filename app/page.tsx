@@ -27,7 +27,7 @@ import { Input } from "@/components/ui/input"
 import { Progress } from "@/components/ui/progress"
 import { useGeolocation } from "@/hooks/useGeolocation"
 
-type AppStep = "landing" | "form" | "verification" | "preliminary" | "generating" | "result" | "offer"
+type AppStep = "landing" | "form" | "verification" | "preliminary" | "generating" | "result"
 
 const monitoringPlatforms = [
   { name: "WhatsApp", icon: MessageCircle, color: "text-green-600", description: "Mensagens e contatos" },
@@ -180,37 +180,37 @@ export default function ParentalMonitoringApp() {
       id: "form",
       fullLabel: "Informações da Criança",
       mobileLabel: "Info",
-      completed: ["verification", "preliminary", "generating", "result", "offer"].includes(currentStep),
+      completed: ["verification", "preliminary", "generating", "result"].includes(currentStep),
     },
     {
       id: "verification",
       fullLabel: "Verificação WhatsApp",
       mobileLabel: "Verificar",
-      completed: ["preliminary", "generating", "result", "offer"].includes(currentStep),
+      completed: ["preliminary", "generating", "result"].includes(currentStep),
     },
     {
       id: "preliminary",
       fullLabel: "Escaneamento Preliminar",
       mobileLabel: "Escanear",
-      completed: ["generating", "result", "offer"].includes(currentStep),
+      completed: ["generating", "result"].includes(currentStep),
     },
     {
       id: "generating",
       fullLabel: "Gerando Relatório",
       mobileLabel: "Relatório",
-      completed: ["result", "offer"].includes(currentStep),
+      completed: ["result"].includes(currentStep),
     },
     {
       id: "result",
       fullLabel: "Resultados Prontos",
       mobileLabel: "Resultados",
-      completed: ["offer"].includes(currentStep),
+      completed: ["result"].includes(currentStep),
     },
   ]
 
   // Timer countdown
   useEffect(() => {
-    if (currentStep === "result" || currentStep === "offer") {
+    if (currentStep === "result") {
       const timer = setInterval(() => {
         setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0))
       }, 1000)
@@ -296,7 +296,7 @@ export default function ParentalMonitoringApp() {
   // Updated sales proof effect - now includes generating step
   // Sales proof effect
   useEffect(() => {
-    if (currentStep === "generating" || currentStep === "result" || currentStep === "offer") {
+    if (currentStep === "generating" || currentStep === "result") {
       const showProof = () => {
         if (Math.random() < 0.7) {
           setShowSalesProof(true)
@@ -586,7 +586,7 @@ export default function ParentalMonitoringApp() {
 
       {/* Sales Proof Popup - Dynamic Social Proof */}
       <AnimatePresence>
-        {showSalesProof && (currentStep === "generating" || currentStep === "result" || currentStep === "offer") && (
+        {showSalesProof && (currentStep === "generating" || currentStep === "result") && (
           <SalesProofPopup show={showSalesProof} onClose={() => setShowSalesProof(false)} />
         )}
       </AnimatePresence>
@@ -617,9 +617,6 @@ export default function ParentalMonitoringApp() {
                       </a>
                       <a href="#security" className="text-gray-300 hover:text-white transition-colors">
                         Segurança
-                      </a>
-                      <a href="#pricing" className="text-gray-300 hover:text-white transition-colors">
-                        Preços
                       </a>
                     </div>
                     <Button className="btn-primary">Começar Agora</Button>
@@ -1686,158 +1683,6 @@ export default function ParentalMonitoringApp() {
                         <Shield className="w-4 h-4" />
                         100% Anônimo - Eles Nunca Saberão
                       </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </motion.div>
-          )}
-
-          {/* Offer Page - Mobile Optimized */}
-          {currentStep === "offer" && (
-            <motion.div
-              key="offer"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="min-h-screen bg-gradient-to-br from-[#1C2833] to-[#6C63FF] px-4 py-6 sm:py-8"
-            >
-              <div className="container mx-auto max-w-2xl">
-                <Card className="bg-white rounded-2xl shadow-2xl border-0">
-                  <CardContent className="p-6 sm:p-8 text-center">
-                    <div className="mb-6 sm:mb-8">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-red-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
-                        <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
-                      </div>
-                      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-3 sm:mb-4">
-                        Proteja Seu Filho Agora Mesmo
-                      </h1>
-                      <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6 leading-relaxed">
-                        Pare de se preocupar. Pare de perder o sono. Obtenha todos os detalhes - completamente
-                        confidencial.
-                      </p>
-                      <div className="bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 rounded-xl p-4 sm:p-6">
-                        <p className="text-sm sm:text-base text-red-700 font-semibold leading-relaxed">
-                          Seus instintos estavam certos. Agora veja exatamente o que eles estavam escondendo enquanto
-                          olhavam nos seus olhos e mentiam.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="mb-6 sm:mb-8">
-                      <div className="flex items-center justify-center gap-4 sm:gap-6 mb-4 sm:mb-6">
-                        <div className="text-2xl sm:text-3xl text-gray-400 line-through">R$ 97,00</div>
-                        <div className="text-4xl sm:text-5xl font-bold text-[#FF0066]">R$ 37,00</div>
-                      </div>
-                      <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-pink-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-bold mb-4">
-                        🔥 62% OFF - TEMPO LIMITADO
-                      </div>
-                      <p className="text-sm sm:text-base text-gray-600 font-medium">
-                        Pagamento único para acesso vitalício ao seu relatório completo
-                      </p>
-                    </div>
-
-                    <div className="text-left mb-6 sm:mb-8">
-                      <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-4 sm:mb-6 text-center">
-                        O que você vai desbloquear:
-                      </h3>
-                      <div className="space-y-3 sm:space-y-4">
-                        <div className="flex items-start gap-3 sm:gap-4">
-                          <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
-                          <span className="text-sm sm:text-base text-gray-700 font-medium">
-                            Todas as Fotos do Perfil (incluindo aquelas que eles acham que você nunca verá)
-                          </span>
-                        </div>
-                        <div className="flex items-start gap-3 sm:gap-4">
-                          <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
-                          <span className="text-sm sm:text-base text-gray-700 font-medium">
-                            Histórico Completo de Conversas (veja exatamente o que eles estão dizendo para outras
-                            pessoas)
-                          </span>
-                        </div>
-                        <div className="flex items-start gap-3 sm:gap-4">
-                          <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
-                          <span className="text-sm sm:text-base text-gray-700 font-medium">
-                            Dados Exatos de Localização (onde eles estiveram 'trabalhando até tarde' ou 'com amigos')
-                          </span>
-                        </div>
-                        <div className="flex items-start gap-3 sm:gap-4">
-                          <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
-                          <span className="text-sm sm:text-base text-gray-700 font-medium">
-                            Contatos Ativos e Mensagens (nomes, fotos e frequência de chat)
-                          </span>
-                        </div>
-                        <div className="flex items-start gap-3 sm:gap-4">
-                          <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
-                          <span className="text-sm sm:text-base text-gray-700 font-medium">
-                            Cronograma de Todas as Atividades (quando eles estavam mais ativos enquanto com você)
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
-                      <div className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 bg-gray-50 rounded-xl">
-                        <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
-                        <span className="text-xs sm:text-sm font-medium text-gray-700">100% Anônimo</span>
-                      </div>
-                      <div className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 bg-gray-50 rounded-xl">
-                        <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
-                        <span className="text-xs sm:text-sm font-medium text-gray-700">Criptografia SSL</span>
-                      </div>
-                      <div className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 bg-gray-50 rounded-xl">
-                        <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-purple-500" />
-                        <span className="text-xs sm:text-sm font-medium text-gray-700">Acesso Instantâneo</span>
-                      </div>
-                    </div>
-
-                    <div className="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
-                      <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2">
-                        <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6 text-red-500" />
-                        <span className="font-bold text-red-700 text-sm sm:text-base">OFERTA EXPIRA EM:</span>
-                      </div>
-                      <div className="text-2xl sm:text-3xl font-bold text-red-600 mb-2">{formatTime(timeLeft)}</div>
-                      <p className="text-xs sm:text-sm text-red-600">
-                        Esta é sua única chance de acessar este relatório. Uma vez deletado, não pode ser recuperado.
-                      </p>
-                    </div>
-
-                    <Button
-                      onClick={() => (window.location.href = "/emergency")}
-                      className="w-full bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-4 sm:py-6 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-4 sm:mb-6 overflow-hidden"
-                    >
-                      <span className="block text-center leading-tight px-2">
-                        🔓 DESBLOQUEAR MEU RELATÓRIO - ESTOU PRONTO PARA A VERDADE
-                      </span>
-                    </Button>
-
-                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 sm:p-6 mb-4 sm:mb-6">
-                      <p className="text-sm sm:text-base text-blue-700 font-medium leading-relaxed">
-                        Você não está invadindo privacidade - você está protegendo seu bem-estar emocional. Você tem o
-                        direito de tomar decisões informadas sobre seu relacionamento.
-                      </p>
-                    </div>
-
-                    <div className="bg-gray-50 rounded-xl p-4 sm:p-6">
-                      <div className="flex items-start gap-3 sm:gap-4">
-                        <img
-                          src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8fGVufDB8MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                          alt="Maria S."
-                          className="w-10 h-10 sm:w-12 sm:w-12 rounded-full object-cover border-2 border-gray-200"
-                        />
-                        <div className="flex-1 text-left">
-                          <div className="mb-2">
-                            <p className="font-bold text-[#333333] text-sm sm:text-base">Maria S.</p>
-                            <p className="text-xs sm:text-sm text-green-600 font-medium">✓ Usuário Verificado</p>
-                          </div>
-                          <p className="text-sm sm:text-base text-gray-600 italic leading-relaxed">
-                            "Eu gostaria de ter feito isso há meses. Teria me poupado tanta ansiedade e tempo perdido."
-                          </p>
-                          <div className="flex items-center text-[#FFD700] text-sm mt-2">
-                            <span>⭐⭐⭐⭐⭐</span>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </CardContent>
                 </Card>

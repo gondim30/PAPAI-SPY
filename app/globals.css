@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "tailwindcss";
-
-@theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
 @layer base {
   :root {
     /* Professional Dark Theme - Inspired by v0, Next.js, and modern enterprise apps */
@@ -66,17 +59,18 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
   /* Professional typography scale */
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-balance;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl font-semibold tracking-tight text-balance;
+    @apply text-3xl md:text-4xl font-semibold tracking-tight;
   }
 
   h3 {
@@ -88,7 +82,7 @@
   }
 
   p {
-    @apply text-base md:text-lg leading-relaxed text-pretty;
+    @apply text-base md:text-lg leading-relaxed;
   }
 
   /* Professional button styles */
