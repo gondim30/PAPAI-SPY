@@ -10,31 +10,31 @@ export default function ThanksPage() {
   const router = useRouter()
 
   const reportItems = [
-    "Todas as fotos do perfil (incluindo privadas)",
-    "Histórico completo de conversas e mensagens",
-    "Dados exatos de localização e atividade de namoro",
-    "Cronograma detalhado de atividades e padrões",
+    "All profile photos (including private ones)",
+    "Complete history of conversations and messages",
+    "Exact location and dating activity data",
+    "Detailed timeline of activities and patterns",
   ]
 
   const processSteps = [
-    { icon: CheckCircle, label: "Pagamento Confirmado", status: "completed" },
-    { icon: Clock, label: "Processando Relatório", status: "current" },
-    { icon: Mail, label: "Entrega por Email", status: "pending" },
+    { icon: CheckCircle, label: "Payment Confirmed", status: "completed" },
+    { icon: Clock, label: "Processing Report", status: "current" },
+    { icon: Mail, label: "Email Delivery", status: "pending" },
   ]
 
   const thanksMessages = {
-    paymentSuccessful: "Pagamento Realizado com Sucesso!",
-    thankYou: "Obrigado pela sua compra. Seu relatório completo está sendo processado.",
-    completeReportDelivery: "Entrega do Relatório Completo",
-    estimatedDelivery: "Entrega Estimada: Em até 7 dias",
-    paymentConfirmed: "Pagamento Confirmado",
-    reportProcessing: "Processando Relatório",
-    emailDelivery: "Entrega por Email",
-    whatsIncluded: "O que está Incluído",
-    importantNotice: "Aviso Importante",
-    checkEmail: "Por favor, verifique seu email regularmente, incluindo sua pasta de spam/lixo eletrônico.",
-    secureEmail: "O relatório será enviado de um endereço de email seguro.",
-    contactSupport: "Se você não receber em 7 dias, entre em contato com nossa equipe de suporte.",
+    paymentSuccessful: "Payment Completed Successfully!",
+    thankYou: "Thank you for your purchase. Your complete report is being processed.",
+    completeReportDelivery: "Complete Report Delivery",
+    estimatedDelivery: "Estimated Delivery: Within 7 days",
+    paymentConfirmed: "Payment Confirmed",
+    reportProcessing: "Processing Report",
+    emailDelivery: "Email Delivery",
+    whatsIncluded: "What's Included",
+    importantNotice: "Important Notice",
+    checkEmail: "Please check your email regularly, including your spam/junk folder.",
+    secureEmail: "The report will be sent from a secure email address.",
+    contactSupport: "If you don't receive it within 7 days, contact our support team.",
   }
 
   return (
@@ -172,15 +172,15 @@ export default function ThanksPage() {
               <div className="flex justify-center items-center space-x-6 mb-8 text-sm text-slate-600">
                 <div className="flex items-center">
                   <Shield className="w-4 h-4 mr-1 text-emerald-600" />
-                  SSL Seguro
+                  Secure SSL
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="w-4 h-4 mr-1 text-blue-600" />
-                  Pagamento Verificado
+                  Verified Payment
                 </div>
                 <div className="flex items-center">
                   <Mail className="w-4 h-4 mr-1 text-purple-600" />
-                  Email Protegido
+                  Protected Email
                 </div>
               </div>
 
@@ -196,7 +196,7 @@ export default function ThanksPage() {
                   className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <ArrowLeft className="w-5 h-5 mr-2" />
-                  Voltar ao Início
+                  Back to Home
                 </Button>
               </motion.div>
             </CardContent>
@@ -210,7 +210,7 @@ export default function ThanksPage() {
             className="text-center mt-8 text-slate-500 text-sm"
           >
             <p>
-              Precisa de ajuda? Entre em contato com nossa equipe de suporte em{" "}
+              Need help? Contact our support team at{" "}
               <a href="mailto:support@familysafe.online" className="text-blue-600 hover:underline">
                 support@familysafe.online
               </a>

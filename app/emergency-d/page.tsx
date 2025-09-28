@@ -51,14 +51,14 @@ export default function EmergencyDownsellPage() {
   }
 
   const downsellMessages = {
-    lastChance: "ÚLTIMA CHANCE!",
-    loseAccess: "Não perca o acesso ao relatório completo",
-    specialOffer: "OFERTA ESPECIAL DE ÚLTIMA CHANCE",
-    aboutToLose: "Você estava prestes a perder o acesso permanente...",
-    specialOfferNever: "Como você chegou até aqui, estamos fazendo uma oferta especial que nunca será repetida.",
-    discountToday: "42% de desconto - Apenas hoje",
-    accessSuspicious: "QUERO ACESSAR O CONTEÚDO SUSPEITO AGORA",
-    dontWantAccess: "Não quero acessar o conteúdo suspeito agora",
+    lastChance: "LAST CHANCE!",
+    loseAccess: "Don't lose access to the complete report",
+    specialOffer: "LAST CHANCE SPECIAL OFFER",
+    aboutToLose: "You were about to lose permanent access...",
+    specialOfferNever: "Since you made it this far, we're making a special offer that will never be repeated.",
+    discountToday: "42% discount - Today only",
+    accessSuspicious: "I WANT TO ACCESS THE SUSPICIOUS CONTENT NOW",
+    dontWantAccess: "I don't want to access the suspicious content now",
   }
 
   return (
@@ -114,27 +114,27 @@ export default function EmergencyDownsellPage() {
         {/* What You're Missing */}
         <Card className="border-red-200 bg-white shadow-xl">
           <CardContent className="p-6">
-            <h3 className="text-xl font-bold text-slate-800 mb-6 text-center">O que você está perdendo ao recusar:</h3>
+            <h3 className="text-xl font-bold text-slate-800 mb-6 text-center">What you're missing by refusing:</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <Camera className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-slate-800">Fotos íntimas sem censura</h4>
-                  <p className="text-sm text-slate-600">Todas as fotos que ele/ela envia para outros</p>
+                  <h4 className="font-semibold text-slate-800">Uncensored intimate photos</h4>
+                  <p className="text-sm text-slate-600">All photos he/she sends to others</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MessageCircle className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-slate-800">Conversas completas</h4>
-                  <p className="text-sm text-slate-600">O que realmente está sendo dito nas mensagens</p>
+                  <h4 className="font-semibold text-slate-800">Complete conversations</h4>
+                  <p className="text-sm text-slate-600">What's really being said in the messages</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-slate-800">Localização exata dos encontros</h4>
-                  <p className="text-sm text-slate-600">Onde e quando os encontros são marcados</p>
+                  <h4 className="font-semibold text-slate-800">Exact location of meetings</h4>
+                  <p className="text-sm text-slate-600">Where and when meetings are arranged</p>
                 </div>
               </div>
             </div>
@@ -146,18 +146,19 @@ export default function EmergencyDownsellPage() {
           <CardContent className="p-6">
             <div className="text-center mb-6">
               <h3 className="text-2xl font-bold text-red-600 mb-2 flex items-center justify-center gap-2">
-                <Clock className="w-8 h-8" />O TEMPO ESTÁ ACABANDO!
+                <Clock className="w-8 h-8" />
+                TIME IS RUNNING OUT!
               </h3>
               <p className="text-lg font-semibold text-slate-700">
-                Esta oferta expira em: <span className="text-red-600 font-mono">{formatTime(timeLeft)}</span>
+                This offer expires in: <span className="text-red-600 font-mono">{formatTime(timeLeft)}</span>
               </p>
             </div>
             <div className="text-center">
               <p className="text-slate-700 mb-4">
-                Após o tempo expirar, você nunca mais terá acesso a essas informações.
+                After time expires, you will never have access to this information again.
               </p>
               <p className="text-red-600 font-semibold">
-                Os dados serão permanentemente deletados por motivos de confidencialidade.
+                The data will be permanently deleted for confidentiality reasons.
               </p>
             </div>
           </CardContent>
@@ -166,10 +167,9 @@ export default function EmergencyDownsellPage() {
         {/* Final CTA */}
         <Card className="border-emerald-200 bg-white shadow-xl">
           <CardContent className="p-6 text-center">
-            <h3 className="text-xl font-bold text-emerald-700 mb-4">Última chance de descobrir a verdade</h3>
+            <h3 className="text-xl font-bold text-emerald-700 mb-4">Last chance to discover the truth</h3>
             <p className="text-slate-700 mb-6">
-              Não deixe a dúvida te consumir. Por apenas R$ 27, você terá acesso completo e permanente a todas as
-              informações.
+              Don't let doubt consume you. For just R$ 27, you'll have complete and permanent access to all information.
             </p>
 
             {/* Final CTA with TriboPay */}
