@@ -93,17 +93,12 @@ export default function EmergencyDownsellPage() {
               <div className="text-center">
                 <div style={{ width: "auto", maxWidth: "400px", margin: "0 auto" }}>
                   <button
-                    data-fornpay="3olowe4hoo"
-                    className="fornpay_btn bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold py-3 px-6 rounded-lg border border-emerald-700 cursor-pointer text-lg mb-4 w-full transition-all duration-300 shadow-lg hover:shadow-xl"
+                    onClick={() =>
+                      window.open("https://pay.mundpay.com/019990ab-7c49-7182-a51b-4ea9181bd192?ref=", "_blank")
+                    }
+                    className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold py-3 px-6 rounded-lg border border-emerald-700 cursor-pointer text-lg mb-4 w-full transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     {downsellMessages.accessSuspicious}
-                  </button>
-
-                  <button
-                    data-downsell="https://www.familysafe.online/emergency2"
-                    className="fornpay_downsell mt-4 cursor-pointer text-base underline text-blue-600 hover:text-blue-800 transition-colors block w-full bg-transparent border-0"
-                  >
-                    {downsellMessages.dontWantAccess}
                   </button>
                 </div>
               </div>
@@ -176,24 +171,19 @@ export default function EmergencyDownsellPage() {
             <div className="text-center">
               <div style={{ width: "auto", maxWidth: "400px", margin: "0 auto" }}>
                 <button
-                  data-fornpay="3olowe4hoo"
-                  className="fornpay_btn bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold py-3 px-6 rounded-lg border border-emerald-700 cursor-pointer text-lg mb-4 w-full transition-all duration-300 shadow-lg hover:shadow-xl"
+                  onClick={() =>
+                    window.open("https://pay.mundpay.com/019990ab-7c49-7182-a51b-4ea9181bd192?ref=", "_blank")
+                  }
+                  className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold py-3 px-6 rounded-lg border border-emerald-700 cursor-pointer text-lg mb-4 w-full transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   {downsellMessages.accessSuspicious}
-                </button>
-
-                <button
-                  data-downsell="https://www.familysafe.online/emergency2"
-                  className="fornpay_downsell mt-4 cursor-pointer text-base underline text-blue-600 hover:text-blue-800 transition-colors block w-full bg-transparent border-0"
-                >
-                  {downsellMessages.dontWantAccess}
                 </button>
               </div>
             </div>
           </CardContent>
         </Card>
       </div>
-      <script src="https://app.tribopay.com.br/js/oneclick.js"></script>
+      {/* <script src="https://app.tribopay.com.br/js/oneclick.js"></script> */}
     </div>
   )
 }

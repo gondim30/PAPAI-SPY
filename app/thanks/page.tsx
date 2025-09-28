@@ -1,8 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { CheckCircle, Clock, Mail, Shield, ArrowLeft, AlertTriangle } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { CheckCircle, Clock, Mail, Shield, AlertTriangle } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { useRouter } from "next/navigation"
 
@@ -190,32 +189,24 @@ export default function ThanksPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 }}
                 className="text-center"
+              ></motion.div>
+
+              {/* Footer Note */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2 }}
+                className="text-center mt-8 text-slate-500 text-sm"
               >
-                <Button
-                  onClick={() => router.push("/")}
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  <ArrowLeft className="w-5 h-5 mr-2" />
-                  Back to Home
-                </Button>
+                <p>
+                  Need help? Contact our support team at{" "}
+                  <a href="mailto:support@familysafe.online" className="text-blue-600 hover:underline">
+                    support@familysafe.online
+                  </a>
+                </p>
               </motion.div>
             </CardContent>
           </Card>
-
-          {/* Footer Note */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            className="text-center mt-8 text-slate-500 text-sm"
-          >
-            <p>
-              Need help? Contact our support team at{" "}
-              <a href="mailto:support@familysafe.online" className="text-blue-600 hover:underline">
-                support@familysafe.online
-              </a>
-            </p>
-          </motion.div>
         </motion.div>
       </div>
     </div>
