@@ -409,12 +409,11 @@ export default function ParentalMonitoringApp() {
     return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`
   }
 
-  // Updated blocked images with new chat screenshots
   const blockedImages = [
-    "https://i.ibb.co/PZmmjcxb/CHAT1.png",
-    "https://i.ibb.co/20581vtC/CHAT2.png",
-    "https://i.ibb.co/LzFZdXXH/CHAT3.png",
-    "https://i.ibb.co/kvWFRct/CHAT4.png",
+    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Imagem%20do%20WhatsApp%20de%202025-09-29%20%C3%A0%28s%29%2006.17.22_8d47d247-3pR2Jy1E1OpY7SbgCNCmM5gDVHzvH7.jpg", // xvideos.com screenshot
+    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Imagem%20do%20WhatsApp%20de%202025-09-29%20%C3%A0%28s%29%2006.17.22_54a1aada-8hL4zZISHSRcQWOmgvodP0IK108lr5.jpg", // Discord screenshot
+    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Imagem%20do%20WhatsApp%20de%202025-09-29%20%C3%A0%28s%29%2006.17.22_75cd58e7-1ByklWlHS7rbjY8LVVALF0vVoF2xE8.jpg", // Tinder screenshot
+    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Imagem%20do%20WhatsApp%20de%202025-09-29%20%C3%A0%28s%29%2006.17.22_cb1836c7-5JMXs00RbDcyP5OuahQ96d98146e4T.jpg", // OnlyFans screenshot
   ]
 
   const nextSlide = () => {
@@ -1412,7 +1411,7 @@ export default function ParentalMonitoringApp() {
                     <div className="text-center">
                       <p className="text-xs sm:text-sm text-gray-500 flex items-center justify-center gap-2 font-medium">
                         <Lock className="w-4 h-4" />
-                        Complete anonymity guaranteed - They'll never know you checked
+                        Complete anonymity guaranteed - They'll never know
                       </p>
                     </div>
                   </CardContent>
@@ -1570,12 +1569,10 @@ export default function ParentalMonitoringApp() {
 
                 <Card className="bg-white rounded-2xl shadow-lg border-0 mb-6 sm:mb-8">
                   <CardContent className="p-4 sm:p-6">
-                    <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-4 sm:mb-6">
-                      📸 CENSORED CONVERSATIONS
-                    </h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-4 sm:mb-6">📸 WEBSITES ACCESSED</h3>
                     <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                      Get instant access to the complete report with uncensored conversations and complete history. Even
-                      if they try to delete, we have everything saved.
+                      Get instant access to the complete report with uncensored sites and complete history. Even if they
+                      try to delete, we have everything saved.
                     </p>
 
                     <div className="relative">
@@ -1645,8 +1642,8 @@ export default function ParentalMonitoringApp() {
                         🔓 UNLOCK COMPLETE REPORT
                       </h3>
                       <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                        Get instant access to the complete report with uncensored conversations and complete history.
-                        Even if they try to delete, we have everything saved.
+                        Get instant access to the complete report with uncensored sites and complete history. Even if
+                        they try to delete, we have everything saved.
                       </p>
                     </div>
 
