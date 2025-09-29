@@ -618,7 +618,6 @@ export default function ParentalMonitoringApp() {
                         Security
                       </a>
                     </div>
-                    <Button className="btn-primary">Start Now</Button>
                   </div>
                 </div>
               </nav>
@@ -647,8 +646,10 @@ export default function ParentalMonitoringApp() {
                       <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
                         Discreetly monitor your children's activities on <strong className="text-white">Roblox</strong>,
                         <strong className="text-white"> WhatsApp</strong>,{" "}
-                        <strong className="text-white">Discord</strong>,<strong className="text-white"> TikTok</strong>{" "}
-                        and other platforms. Protect them from predators and inappropriate content.
+                        <strong className="text-white">Discord</strong>,<strong className="text-white"> TikTok</strong>,{" "}
+                        <strong className="text-white">Snapchat</strong>,{" "}
+                        <strong className="text-white">adult sites</strong> and other platforms. Protect them from
+                        predators and inappropriate content.
                       </p>
                     </div>
 
@@ -1379,7 +1380,7 @@ export default function ParentalMonitoringApp() {
                           What you'll see in the Complete Report:
                         </h3>
                       </div>
-                      <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-blue-600">
+                      <ul className="space-y-2 sm:space-3 text-xs sm:text-sm text-blue-600">
                         <li className="flex items-center gap-2 sm:gap-3">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full flex-shrink-0" />
                           Screenshots of all active profiles
